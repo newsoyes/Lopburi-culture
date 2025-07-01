@@ -35,6 +35,7 @@
 - **CSS3**: การออกแบบและเอฟเฟกต์
 - **JavaScript**: การทำงานแบบ interactive
 - **Three.js**: การสร้างโมเดล 3D
+- **GLTFLoader**: โหลดไฟล์ GLB/GLTF
 - **Google Fonts**: ฟอนต์ Orbitron และ Rajdhani
 
 ## 🎨 ธีมและสีสัน
@@ -64,6 +65,14 @@ eglisgh/
 ├── index.html          # ไฟล์หลัก
 ├── styles.css          # ไฟล์ CSS
 ├── script.js           # ไฟล์ JavaScript
+├── models/             # โฟลเดอร์สำหรับไฟล์ GLB
+│   ├── monkey.glb      # โมเดลลิงลพบุรี
+│   ├── salted-egg.glb  # โมเดลไข่เค็ม
+│   ├── chalk.glb       # โมเดลดินสอพอง
+│   ├── prang.glb       # โมเดลปรางค์สามยอด
+│   ├── dam.glb         # โมเดลเขื่อนป่าสัก
+│   ├── mountain.glb    # โมเดลเขาจีนแล
+│   └── README.md       # คู่มือการใช้งานไฟล์ GLB
 └── README.md           # ไฟล์อธิบาย
 ```
 
@@ -75,6 +84,8 @@ eglisgh/
 - **Particle System**: อนุภาคที่ลอยขึ้น
 - **Hover Effects**: เอฟเฟกต์เมื่อ hover
 - **Modal Animation**: การเคลื่อนไหวของ modal
+- **Loading Indicator**: แสดงความคืบหน้าการโหลดโมเดล 3D
+- **Error Handling**: จัดการข้อผิดพลาดเมื่อโหลดโมเดลไม่สำเร็จ
 
 ## 🎯 การควบคุมโมเดล 3D
 
@@ -90,6 +101,39 @@ eglisgh/
 - เพิ่มเสียงประกอบ
 - เพิ่มการแชร์บนโซเชียลมีเดีย
 - เพิ่มระบบค้นหา
+- **ใช้โมเดล 3D จาก tripo3d.ai**: สร้างโมเดล 3D ที่สวยงามและนำมาใช้แทนโมเดล built-in
+
+## 🎨 การใช้ไฟล์ GLB จาก tripo3d.ai
+
+### วิธีใช้งาน:
+1. **สร้างโมเดล 3D**: ไปที่ www.tripo3d.ai และสร้างโมเดล 3D
+2. **ดาวน์โหลดไฟล์ GLB**: เลือกดาวน์โหลดในรูปแบบ GLB
+3. **วางไฟล์**: วางไฟล์ในโฟลเดอร์ `models/`
+4. **ตั้งค่า**: แก้ไข `script.js` เพื่อใช้ไฟล์ GLB
+
+### ตัวอย่างการตั้งค่า:
+```javascript
+// ใน itemData object
+monkey: {
+    title: "ลิงลพบุรี",
+    description: "...",
+    modelType: "glb"  // เปลี่ยนจาก "builtin" เป็น "glb"
+}
+
+// ใน glbModels object
+const glbModels = {
+    monkey: "models/monkey.glb",
+    "salted-egg": "models/salted-egg.glb"
+};
+```
+
+### คุณสมบัติที่รองรับ:
+- ✅ โหลดไฟล์ GLB/GLTF
+- ✅ แสดงความคืบหน้าการโหลด
+- ✅ จัดการข้อผิดพลาด
+- ✅ รองรับ Animation
+- ✅ ปรับขนาดอัตโนมัติ
+- ✅ แสงและเงาที่สวยงาม
 
 ---
 

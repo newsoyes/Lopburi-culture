@@ -390,6 +390,100 @@ body {
     font-size: 0.9rem;
 }
 
+/* Loading Indicator */
+#loadingIndicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.loading-content {
+    text-align: center;
+    color: var(--neon-cyan);
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(0, 255, 255, 0.3);
+    border-top: 3px solid var(--neon-cyan);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-content p {
+    margin-bottom: 1rem;
+    font-family: 'Orbitron', monospace;
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.loading-progress {
+    width: 200px;
+    height: 4px;
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Error Message */
+.error-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 0, 0, 0.1);
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    z-index: 10;
+}
+
+.error-content p {
+    color: #ff0000;
+    margin-bottom: 1rem;
+    font-family: 'Orbitron', monospace;
+    text-shadow: 0 0 10px #ff0000;
+}
+
+.error-content button {
+    background: linear-gradient(45deg, #ff0000, #ff6666);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', monospace;
+    transition: all 0.3s ease;
+}
+
+.error-content button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #ff0000;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .main-title {
@@ -427,4 +521,11 @@ body {
     .item-card {
         padding: 1rem;
     }
+}
+
+#downloadArea a:hover {
+    background: linear-gradient(45deg,#ff00ff,#00ffff);
+    color: #fff;
+    box-shadow: 0 0 20px #ff00ff;
+    transform: scale(1.05);
 } 

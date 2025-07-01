@@ -2,39 +2,62 @@
 const itemData = {
     monkey: {
         title: "ลิงลพบุรี",
-        description: "ลิงแสม (Macaca fascicularis) ที่อาศัยในเมืองลพบุรี เป็นสัญลักษณ์สำคัญของเมืองนี้ ลิงเหล่านี้อาศัยอยู่ตามโบราณสถานและวัดต่างๆ ในเมืองลพบุรี โดยเฉพาะที่วัดพระศรีรัตนมหาธาตุ และปรางค์สามยอด ลิงลพบุรีเป็นที่รู้จักในฐานะสัตว์ประจำเมืองที่สร้างความน่าสนใจให้กับนักท่องเที่ยว",
-        color: "#8B4513"
+        description: "ลิงแสม (Macaca fascicularis) เป็นสัญลักษณ์สำคัญของลพบุรี พบได้ทั่วไปตามโบราณสถาน เช่น ปรางค์สามยอด วัดพระศรีรัตนมหาธาตุ และเป็นที่ดึงดูดนักท่องเที่ยวให้มาเยี่ยมชมและให้อาหารลิงในเมืองลพบุรีทุกปี โดยเฉพาะในงานเลี้ยงโต๊ะจีนลิงที่จัดขึ้นเป็นประจำทุกปี",
+        reference: "https://www.lopburi.org/copy-of",
+        color: "#8B4513",
+        modelType: "glb"
     },
     "salted-egg": {
         title: "ไข่เค็มลพบุรี",
-        description: "ไข่เค็มลพบุรีเป็นผลิตภัณฑ์ที่มีชื่อเสียงของจังหวัดลพบุรี ผลิตจากไข่เป็ดที่ผ่านการแช่ในน้ำเกลือและดินสอพองเป็นเวลานาน ทำให้ไข่แดงมีสีส้มเข้มและมีรสชาติเข้มข้น ไข่เค็มลพบุรีเป็นของฝากที่นิยมซื้อกลับบ้าน",
-        color: "#FFD700"
+        description: "ไข่เค็มลพบุรี ผลิตจากไข่เป็ดคุณภาพดีและดินสอพองของลพบุรี มีรสชาติอร่อย ไข่แดงมันเยิ้ม นิยมซื้อเป็นของฝากและใช้ประกอบอาหารหลากหลายเมนู เช่น ข้าวต้ม ไข่เค็มต้มยางมะตูม ฯลฯ",
+        reference: "https://itech.tru.ac.th/Art/show_4.php",
+        color: "#FFD700",
+        modelType: "glb"
     },
     chalk: {
-        title: "ดินสอพอง",
-        description: "ดินสอพองลพบุรีเป็นผลิตภัณฑ์ที่มีคุณภาพดี ใช้ในการทำไข่เค็มและเป็นส่วนผสมในอาหารต่างๆ ดินสอพองจากลพบุรีมีแร่ธาตุที่สำคัญและเป็นที่ยอมรับในด้านคุณภาพ",
-        color: "#F5F5DC"
+        title: "ดินสอพองลพบุรี",
+        description: "ดินสอพองลพบุรีเป็นวัตถุดิบสำคัญในการทำไข่เค็มและใช้ในประเพณีสงกรานต์ มีคุณสมบัติพิเศษคือเนื้อละเอียด สีขาวสะอาด และปลอดภัยต่อผิวหนัง เป็นสินค้าขึ้นชื่อของจังหวัดลพบุรี",
+        reference: "https://www.ipst.ac.th/news/60772/20240411-limestone-ipst.html",
+        color: "#F5F5DC",
+        modelType: "glb"
     },
     prang: {
         title: "ปรางค์สามยอด",
-        description: "ปรางค์สามยอดเป็นโบราณสถานสำคัญของลพบุรี สร้างขึ้นในสมัยพระเจ้าชัยวรมันที่ 7 แห่งอาณาจักรขอม เป็นสถาปัตยกรรมแบบบายนที่มีความงดงามและเป็นสัญลักษณ์ของเมืองลพบุรี",
-        color: "#CD853F"
+        description: "ปรางค์สามยอดเป็นโบราณสถานสำคัญของลพบุรี สร้างขึ้นในสมัยขอมแบบบายน มีลักษณะเป็นปรางค์ 3 องค์เชื่อมต่อกัน เป็นสัญลักษณ์ของเมืองลพบุรีและเป็นที่อยู่อาศัยของลิงจำนวนมาก",
+        reference: "https://th.wikipedia.org/wiki/%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B9%8C%E0%B8%AA%E0%B8%B2%E0%B8%A1%E0%B8%A2%E0%B8%AD%E0%B8%94",
+        color: "#CD853F",
+        modelType: "glb"
     },
     dam: {
         title: "เขื่อนป่าสักชลสิทธิ์",
-        description: "เขื่อนป่าสักชลสิทธิ์เป็นเขื่อนดินที่ใหญ่ที่สุดในประเทศไทย ตั้งอยู่ที่อำเภอพัฒนานิคม จังหวัดลพบุรี สร้างขึ้นเพื่อกักเก็บน้ำและผลิตไฟฟ้า เป็นแหล่งท่องเที่ยวสำคัญของจังหวัด",
-        color: "#4682B4"
+        description: "เขื่อนป่าสักชลสิทธิ์เป็นเขื่อนดินที่ยาวที่สุดในประเทศไทย สร้างขึ้นเพื่อกักเก็บน้ำและป้องกันน้ำท่วมในลุ่มน้ำป่าสัก เป็นแหล่งท่องเที่ยวและจุดชมวิวที่สำคัญของลพบุรี",
+        reference: "https://th.wikipedia.org/wiki/%E0%B9%80%E0%B8%82%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%9B%E0%B9%88%E0%B8%B2%E0%B8%AA%E0%B8%B1%E0%B8%81%E0%B8%8A%E0%B8%A5%E0%B8%AA%E0%B8%B4%E0%B8%97%E0%B8%98%E0%B8%B4%E0%B9%8C",
+        color: "#4682B4",
+        modelType: "glb"
     },
     mountain: {
         title: "เขาจีนแล",
-        description: "เขาจีนแลเป็นภูเขาสูงที่มีความสำคัญทางประวัติศาสตร์ ตั้งอยู่ในอำเภอเมืองลพบุรี เป็นที่ตั้งของวัดเขาจีนแลที่มีความสวยงามและเป็นจุดชมวิวที่สำคัญของจังหวัดลพบุรี",
-        color: "#228B22"
+        description: "เขาจีนแลเป็นภูเขาสูงที่ตั้งอยู่ทางทิศตะวันตกของเมืองลพบุรี เป็นจุดชมวิวพระอาทิตย์ตกที่สวยงามและเป็นที่ตั้งของวัดเขาจีนแลซึ่งมีพระพุทธรูปองค์ใหญ่ประดิษฐานอยู่",
+        reference: "https://www.facebook.com/p/%E0%B8%97%E0%B8%B8%E0%B9%88%E0%B8%87%E0%B8%97%E0%B8%B2%E0%B8%99%E0%B8%95%E0%B8%B0%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%82%E0%B8%B2%E0%B8%88%E0%B8%B5%E0%B8%99%E0%B9%81%E0%B8%A5%E0%B8%A5%E0%B8%9E%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5-100076063994411/",
+        color: "#228B22",
+        modelType: "glb"
     }
+};
+
+// ข้อมูลไฟล์ GLB (เพิ่มเมื่อคุณมีไฟล์ GLB)
+const glbModels = {
+    monkey: "models/monkey.glb",
+    "salted-egg": "models/egg.glb",
+    chalk: "models/white clay filler.glb",
+    prang: "models/Phra Prang Sam Yot.glb",
+    dam: "models/dam.glb",
+    mountain: "models/mountain.glb"
 };
 
 // ตัวแปรสำหรับ Three.js
 let scene, camera, renderer, controls;
 let currentModel = null;
+let currentMixer = null;
 
 // เริ่มต้นเว็บไซต์
 document.addEventListener('DOMContentLoaded', function() {
@@ -85,12 +108,31 @@ function openModelModal(itemType) {
     const data = itemData[itemType];
     
     modalTitle.textContent = data.title;
-    modelDescription.textContent = data.description;
+    modelDescription.innerHTML = `
+        <div>${data.description}</div>
+        <div style="margin-top:1rem;">
+            <a href="${data.reference}" target="_blank" style="color:#00ffff;text-decoration:underline;font-size:1rem;">
+                🔗 แหล่งอ้างอิง
+            </a>
+        </div>
+    `;
     
     modal.style.display = 'block';
     
     // สร้างโมเดล 3D
     create3DModel(itemType, data);
+
+    // แสดงปุ่มดาวน์โหลดถ้ามีไฟล์ glb
+    const downloadArea = document.getElementById('downloadArea');
+    if (itemData[itemType].modelType === "glb" && glbModels[itemType]) {
+        downloadArea.innerHTML = `
+            <a href="${glbModels[itemType]}" download style="display:inline-block; margin-top:1rem; padding:0.7rem 1.5rem; background:linear-gradient(45deg,#00ffff,#ff00ff); color:#111; border-radius:6px; font-family:'Orbitron',monospace; font-weight:700; text-decoration:none; box-shadow:0 0 10px #00ffff; transition:all 0.2s;">
+                ⬇️ ดาวน์โหลดไฟล์ 3D (.glb)
+            </a>
+        `;
+    } else {
+        downloadArea.innerHTML = '';
+    }
 }
 
 // ปิด Modal
@@ -102,6 +144,18 @@ function closeModelModal() {
     if (currentModel) {
         scene.remove(currentModel);
         currentModel = null;
+    }
+    
+    // ล้าง animation mixer
+    if (currentMixer) {
+        currentMixer = null;
+    }
+    
+    // ซ่อน loading indicator และ error message
+    hideLoadingIndicator();
+    const errorMessage = document.querySelector('.error-message');
+    if (errorMessage) {
+        errorMessage.remove();
     }
 }
 
@@ -133,38 +187,49 @@ function create3DModel(itemType, data) {
     controls.dampingFactor = 0.05;
     
     // เพิ่มแสง
-    const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
     scene.add(ambientLight);
     
-    const directionalLight = new THREE.DirectionalLight(0x00ffff, 1);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
     directionalLight.position.set(5, 5, 5);
     directionalLight.castShadow = true;
     scene.add(directionalLight);
     
-    const pointLight = new THREE.PointLight(0xff00ff, 1, 100);
+    const pointLight = new THREE.PointLight(0xffffff, 1.2, 100);
     pointLight.position.set(-5, 5, 5);
     scene.add(pointLight);
     
     // สร้างโมเดลตามประเภท
-    switch(itemType) {
-        case 'monkey':
-            createMonkeyModel();
-            break;
-        case 'salted-egg':
-            createEggModel();
-            break;
-        case 'chalk':
-            createChalkModel();
-            break;
-        case 'prang':
-            createPrangModel();
-            break;
-        case 'dam':
-            createDamModel();
-            break;
-        case 'mountain':
-            createMountainModel();
-            break;
+    console.log('Loading model for:', itemType);
+    console.log('Model type:', data.modelType);
+    console.log('GLB path:', glbModels[itemType]);
+    
+    if (data.modelType === "glb" && glbModels[itemType]) {
+        console.log('Loading GLB model from:', glbModels[itemType]);
+        loadGLBModel(glbModels[itemType]);
+    } else {
+        console.log('Using built-in model');
+        // ใช้โมเดล built-in
+        switch(itemType) {
+            case 'monkey':
+                createMonkeyModel();
+                break;
+            case 'salted-egg':
+                createEggModel();
+                break;
+            case 'chalk':
+                createChalkModel();
+                break;
+            case 'prang':
+                createPrangModel();
+                break;
+            case 'dam':
+                createDamModel();
+                break;
+            case 'mountain':
+                createMountainModel();
+                break;
+        }
     }
     
     // เริ่ม animation loop
@@ -423,12 +488,148 @@ function createMountainModel() {
     currentModel = group;
 }
 
+// โหลดโมเดล GLB
+function loadGLBModel(modelPath) {
+    console.log('Starting to load GLB model from:', modelPath);
+    const loader = new THREE.GLTFLoader();
+    
+    // แสดง loading indicator
+    showLoadingIndicator();
+    
+    loader.load(
+        modelPath,
+        function (gltf) {
+            console.log('GLB model loaded successfully!');
+            console.log('Model scene:', gltf.scene);
+            console.log('Animations:', gltf.animations);
+            
+            // ซ่อน loading indicator
+            hideLoadingIndicator();
+            
+            // ล้างโมเดลเก่า
+            if (currentModel) {
+                scene.remove(currentModel);
+            }
+            
+            const model = gltf.scene;
+            
+            // ปรับขนาดโมเดลให้เหมาะสม
+            const box = new THREE.Box3().setFromObject(model);
+            const size = box.getSize(new THREE.Vector3());
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const scale = 3 / maxDim; // ปรับให้สูงประมาณ 3 หน่วย
+            model.scale.setScalar(scale);
+            
+            console.log('Model scaled by:', scale);
+            console.log('Model size:', size);
+            
+            // จัดตำแหน่งโมเดลให้อยู่กลาง
+            const center = box.getCenter(new THREE.Vector3());
+            model.position.sub(center.multiplyScalar(scale));
+            
+            // เพิ่มแสงให้โมเดล
+            model.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                    
+                    // เพิ่ม material ที่สวยงาม
+                    if (child.material) {
+                        child.material.envMapIntensity = 1;
+                        child.material.needsUpdate = true;
+                    }
+                }
+            });
+            
+            scene.add(model);
+            currentModel = model;
+            
+            console.log('Model added to scene');
+            
+            // เริ่ม animation
+            if (gltf.animations && gltf.animations.length > 0) {
+                const mixer = new THREE.AnimationMixer(model);
+                const action = mixer.clipAction(gltf.animations[0]);
+                action.play();
+                
+                // อัปเดต mixer ใน animation loop
+                currentMixer = mixer;
+                console.log('Animation started');
+            }
+        },
+        function (progress) {
+            // แสดงความคืบหน้า
+            console.log('Loading progress:', (progress.loaded / progress.total * 100).toFixed(2) + '%');
+            updateLoadingProgress(progress);
+        },
+        function (error) {
+            // แสดงข้อผิดพลาด
+            console.error('Error loading GLB model:', error);
+            hideLoadingIndicator();
+            showErrorMessage('ไม่สามารถโหลดโมเดล 3D ได้: ' + error.message);
+        }
+    );
+}
+
+// แสดง loading indicator
+function showLoadingIndicator() {
+    const container = document.getElementById('modelContainer');
+    const loadingDiv = document.createElement('div');
+    loadingDiv.id = 'loadingIndicator';
+    loadingDiv.innerHTML = `
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>กำลังโหลดโมเดล 3D...</p>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    `;
+    container.appendChild(loadingDiv);
+}
+
+// ซ่อน loading indicator
+function hideLoadingIndicator() {
+    const loadingDiv = document.getElementById('loadingIndicator');
+    if (loadingDiv) {
+        loadingDiv.remove();
+    }
+}
+
+// อัปเดตความคืบหน้า
+function updateLoadingProgress(progress) {
+    const progressBar = document.querySelector('.progress-bar');
+    if (progressBar) {
+        const percent = (progress.loaded / progress.total) * 100;
+        progressBar.style.width = percent + '%';
+    }
+}
+
+// แสดงข้อความผิดพลาด
+function showErrorMessage(message) {
+    const container = document.getElementById('modelContainer');
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.innerHTML = `
+        <div class="error-content">
+            <p>⚠️ ${message}</p>
+            <button onclick="this.parentElement.parentElement.remove()">ปิด</button>
+        </div>
+    `;
+    container.appendChild(errorDiv);
+}
+
 // Animation loop
 function animate() {
     requestAnimationFrame(animate);
     
     if (currentModel) {
         currentModel.rotation.y += 0.01;
+    }
+    
+    // อัปเดต animation mixer สำหรับ GLB models
+    if (currentMixer) {
+        currentMixer.update(0.016); // ประมาณ 60fps
     }
     
     if (controls) {
