@@ -1,4 +1,4 @@
-// ข้อมูลรายละเอียดของแต่ละรายการ
+// NEWSOYES
 const itemData = {
     monkey: {
         title: "ลิงลพบุรี",
@@ -44,7 +44,7 @@ const itemData = {
     }
 };
 
-// ข้อมูลไฟล์ GLB (เพิ่มเมื่อคุณมีไฟล์ GLB)
+// NEWSOYES
 const glbModels = {
     monkey: "models/monkey.glb",
     "salted-egg": "models/egg.glb",
@@ -54,20 +54,20 @@ const glbModels = {
     mountain: "models/mountain.glb"
 };
 
-// ตัวแปรสำหรับ Three.js
+// NEWSOYES
 let scene, camera, renderer, controls;
 let currentModel = null;
 let currentMixer = null;
 
-// เริ่มต้นเว็บไซต์
+// NEWSOYES
 document.addEventListener('DOMContentLoaded', function() {
     initializeEventListeners();
     addParticleEffects();
 });
 
-// เพิ่ม Event Listeners
+// NEWSOYES
 function initializeEventListeners() {
-    // คลิกที่ catalog items
+    // NEWSOYES
     const catalogItems = document.querySelectorAll('.catalog-item');
     catalogItems.forEach(item => {
         item.addEventListener('click', function() {
@@ -76,7 +76,7 @@ function initializeEventListeners() {
         });
     });
 
-    // ปิด modal
+    // NEWSOYES
     const modal = document.getElementById('modelModal');
     const closeBtn = document.querySelector('.close');
     
@@ -84,14 +84,14 @@ function initializeEventListeners() {
         closeModelModal();
     });
 
-    // ปิด modal เมื่อคลิกนอก modal
+    // NEWSOYES
     window.addEventListener('click', function(event) {
         if (event.target === modal) {
             closeModelModal();
         }
     });
 
-    // ปิด modal ด้วย ESC key
+    // NEWSOYES
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             closeModelModal();
@@ -99,7 +99,7 @@ function initializeEventListeners() {
     });
 }
 
-// เปิด Modal สำหรับแสดงโมเดล 3D
+// NEWSOYES
 function openModelModal(itemType) {
     const modal = document.getElementById('modelModal');
     const modalTitle = document.getElementById('modalTitle');
@@ -119,10 +119,10 @@ function openModelModal(itemType) {
     
     modal.style.display = 'block';
     
-    // สร้างโมเดล 3D
+    // NEWSOYES
     create3DModel(itemType, data);
 
-    // แสดงปุ่มดาวน์โหลดถ้ามีไฟล์ glb
+    // NEWSOYES
     const downloadArea = document.getElementById('downloadArea');
     if (itemData[itemType].modelType === "glb" && glbModels[itemType]) {
         downloadArea.innerHTML = `
@@ -135,23 +135,23 @@ function openModelModal(itemType) {
     }
 }
 
-// ปิด Modal
+// NEWSOYES
 function closeModelModal() {
     const modal = document.getElementById('modelModal');
     modal.style.display = 'none';
     
-    // ล้างโมเดล 3D
+    // NEWSOYES
     if (currentModel) {
         scene.remove(currentModel);
         currentModel = null;
     }
     
-    // ล้าง animation mixer
+    // NEWSOYES
     if (currentMixer) {
         currentMixer = null;
     }
     
-    // ซ่อน loading indicator และ error message
+    // NEWSOYES
     hideLoadingIndicator();
     const errorMessage = document.querySelector('.error-message');
     if (errorMessage) {
@@ -159,34 +159,34 @@ function closeModelModal() {
     }
 }
 
-// สร้างโมเดล 3D
+// NEWSOYES
 function create3DModel(itemType, data) {
     const container = document.getElementById('modelContainer');
     
-    // ล้าง container
+    // NEWSOYES
     container.innerHTML = '';
     
-    // สร้าง scene
+    // NEWSOYES
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x0a0a0a);
     
-    // สร้าง camera
+    // NEWSOYES
     camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
     camera.position.z = 5;
     
-    // สร้าง renderer
+    // NEWSOYES
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(renderer.domElement);
     
-    // เพิ่ม controls
+    // NEWSOYES
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     
-    // เพิ่มแสง
+    // NEWSOYES
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
     scene.add(ambientLight);
     
@@ -199,7 +199,7 @@ function create3DModel(itemType, data) {
     pointLight.position.set(-5, 5, 5);
     scene.add(pointLight);
     
-    // สร้างโมเดลตามประเภท
+    // NEWSOYES
     console.log('Loading model for:', itemType);
     console.log('Model type:', data.modelType);
     console.log('GLB path:', glbModels[itemType]);
@@ -209,7 +209,7 @@ function create3DModel(itemType, data) {
         loadGLBModel(glbModels[itemType]);
     } else {
         console.log('Using built-in model');
-        // ใช้โมเดล built-in
+        // NEWSOYES
         switch(itemType) {
             case 'monkey':
                 createMonkeyModel();
@@ -232,25 +232,25 @@ function create3DModel(itemType, data) {
         }
     }
     
-    // เริ่ม animation loop
+    // NEWSOYES
     animate();
     
-    // ปรับขนาดเมื่อหน้าจอเปลี่ยน
+    // NEWSOYES
     window.addEventListener('resize', onWindowResize);
 }
 
-// สร้างโมเดลลิง
+// NEWSOYES
 function createMonkeyModel() {
     const group = new THREE.Group();
     
-    // หัว
+    // NEWSOYES
     const headGeometry = new THREE.SphereGeometry(1, 32, 32);
     const headMaterial = new THREE.MeshLambertMaterial({ color: 0x8B4513 });
     const head = new THREE.Mesh(headGeometry, headMaterial);
     head.position.y = 1.5;
     group.add(head);
     
-    // หู
+    // NEWSOYES
     const earGeometry = new THREE.SphereGeometry(0.3, 16, 16);
     const earMaterial = new THREE.MeshLambertMaterial({ color: 0x654321 });
     
@@ -262,7 +262,7 @@ function createMonkeyModel() {
     rightEar.position.set(0.8, 2, 0);
     group.add(rightEar);
     
-    // ตา
+    // NEWSOYES
     const eyeGeometry = new THREE.SphereGeometry(0.1, 16, 16);
     const eyeMaterial = new THREE.MeshLambertMaterial({ color: 0x000000 });
     
@@ -274,14 +274,14 @@ function createMonkeyModel() {
     rightEye.position.set(0.3, 1.7, 0.8);
     group.add(rightEye);
     
-    // ลำตัว
+    // NEWSOYES
     const bodyGeometry = new THREE.CylinderGeometry(0.8, 0.6, 2, 32);
     const bodyMaterial = new THREE.MeshLambertMaterial({ color: 0x8B4513 });
     const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
     body.position.y = 0;
     group.add(body);
     
-    // แขน
+    // NEWSOYES
     const armGeometry = new THREE.CylinderGeometry(0.2, 0.15, 1.5, 16);
     const armMaterial = new THREE.MeshLambertMaterial({ color: 0x8B4513 });
     
@@ -295,7 +295,7 @@ function createMonkeyModel() {
     rightArm.rotation.z = -Math.PI / 4;
     group.add(rightArm);
     
-    // ขา
+    // NEWSOYES
     const legGeometry = new THREE.CylinderGeometry(0.25, 0.2, 1.2, 16);
     const legMaterial = new THREE.MeshLambertMaterial({ color: 0x8B4513 });
     
@@ -307,7 +307,7 @@ function createMonkeyModel() {
     rightLeg.position.set(0.4, -1.6, 0);
     group.add(rightLeg);
     
-    // หาง
+    // NEWSOYES
     const tailGeometry = new THREE.CylinderGeometry(0.1, 0.05, 1.5, 16);
     const tailMaterial = new THREE.MeshLambertMaterial({ color: 0x654321 });
     const tail = new THREE.Mesh(tailGeometry, tailMaterial);
@@ -319,25 +319,25 @@ function createMonkeyModel() {
     currentModel = group;
 }
 
-// สร้างโมเดลไข่
+        // NEWSOYES
 function createEggModel() {
     const group = new THREE.Group();
     
-    // ไข่ขาว
+    // NEWSOYES
     const whiteGeometry = new THREE.SphereGeometry(1.2, 32, 32);
     const whiteMaterial = new THREE.MeshLambertMaterial({ color: 0xF5F5DC });
     const white = new THREE.Mesh(whiteGeometry, whiteMaterial);
     white.scale.set(1, 1.3, 1);
     group.add(white);
     
-    // ไข่แดง
+    // NEWSOYES
     const yolkGeometry = new THREE.SphereGeometry(0.6, 32, 32);
     const yolkMaterial = new THREE.MeshLambertMaterial({ color: 0xFFD700 });
     const yolk = new THREE.Mesh(yolkGeometry, yolkMaterial);
     yolk.position.y = 0.3;
     group.add(yolk);
     
-    // เปลือกไข่
+    // NEWSOYES
     const shellGeometry = new THREE.SphereGeometry(1.3, 32, 32);
     const shellMaterial = new THREE.MeshLambertMaterial({ 
         color: 0xF5F5DC,
@@ -352,17 +352,17 @@ function createEggModel() {
     currentModel = group;
 }
 
-// สร้างโมเดลดินสอพอง
+// NEWSOYES
 function createChalkModel() {
     const group = new THREE.Group();
     
-    // ก้อนดินสอพอง
+    // NEWSOYES
     const chalkGeometry = new THREE.CylinderGeometry(0.3, 0.3, 2, 16);
     const chalkMaterial = new THREE.MeshLambertMaterial({ color: 0xF5F5DC });
     const chalk = new THREE.Mesh(chalkGeometry, chalkMaterial);
     group.add(chalk);
     
-    // เพิ่มพื้นผิว
+    // NEWSOYES
     const textureGeometry = new THREE.SphereGeometry(0.1, 8, 8);
     const textureMaterial = new THREE.MeshLambertMaterial({ color: 0xE6E6FA });
     
@@ -380,25 +380,25 @@ function createChalkModel() {
     currentModel = group;
 }
 
-// สร้างโมเดลปรางค์
+// NEWSOYES
 function createPrangModel() {
     const group = new THREE.Group();
     
-    // ฐาน
+    // NEWSOYES
     const baseGeometry = new THREE.BoxGeometry(3, 0.5, 3);
     const baseMaterial = new THREE.MeshLambertMaterial({ color: 0xCD853F });
     const base = new THREE.Mesh(baseGeometry, baseMaterial);
     base.position.y = -1.5;
     group.add(base);
     
-    // ปรางค์หลัก
+    // NEWSOYES
     const mainPrangGeometry = new THREE.ConeGeometry(1, 3, 8);
     const mainPrangMaterial = new THREE.MeshLambertMaterial({ color: 0xCD853F });
     const mainPrang = new THREE.Mesh(mainPrangGeometry, mainPrangMaterial);
     mainPrang.position.y = 0.5;
     group.add(mainPrang);
     
-    // ปรางค์ด้านข้าง
+    // NEWSOYES
     const sidePrangGeometry = new THREE.ConeGeometry(0.6, 2, 8);
     const sidePrangMaterial = new THREE.MeshLambertMaterial({ color: 0xCD853F });
     
@@ -410,7 +410,7 @@ function createPrangModel() {
     rightPrang.position.set(1.5, 0, 0);
     group.add(rightPrang);
     
-    // ยอดปรางค์
+    // NEWSOYES
     const topGeometry = new THREE.SphereGeometry(0.2, 16, 16);
     const topMaterial = new THREE.MeshLambertMaterial({ color: 0xFFD700 });
     const top = new THREE.Mesh(topGeometry, topMaterial);
@@ -421,18 +421,18 @@ function createPrangModel() {
     currentModel = group;
 }
 
-// สร้างโมเดลเขื่อน
+// NEWSOYES
 function createDamModel() {
     const group = new THREE.Group();
     
-    // เขื่อน
+    // NEWSOYES
     const damGeometry = new THREE.BoxGeometry(4, 2, 0.5);
     const damMaterial = new THREE.MeshLambertMaterial({ color: 0x4682B4 });
     const dam = new THREE.Mesh(damGeometry, damMaterial);
     dam.position.y = 0;
     group.add(dam);
     
-    // น้ำ
+    // NEWSOYES
     const waterGeometry = new THREE.BoxGeometry(3, 1, 2);
     const waterMaterial = new THREE.MeshLambertMaterial({ 
         color: 0x1E90FF,
@@ -443,7 +443,7 @@ function createDamModel() {
     water.position.set(0, -0.5, 1);
     group.add(water);
     
-    // ภูเขา
+    // NEWSOYES
     const mountainGeometry = new THREE.ConeGeometry(1.5, 2, 8);
     const mountainMaterial = new THREE.MeshLambertMaterial({ color: 0x228B22 });
     const mountain = new THREE.Mesh(mountainGeometry, mountainMaterial);
@@ -454,18 +454,18 @@ function createDamModel() {
     currentModel = group;
 }
 
-// สร้างโมเดลภูเขา
+// NEWSOYES
 function createMountainModel() {
     const group = new THREE.Group();
     
-    // ภูเขาหลัก
+    // NEWSOYES
     const mainMountainGeometry = new THREE.ConeGeometry(2, 4, 8);
     const mainMountainMaterial = new THREE.MeshLambertMaterial({ color: 0x228B22 });
     const mainMountain = new THREE.Mesh(mainMountainGeometry, mainMountainMaterial);
     mainMountain.position.y = 0;
     group.add(mainMountain);
     
-    // ภูเขาด้านข้าง
+    // NEWSOYES
     const sideMountainGeometry = new THREE.ConeGeometry(1, 2.5, 8);
     const sideMountainMaterial = new THREE.MeshLambertMaterial({ color: 0x32CD32 });
     
@@ -477,7 +477,7 @@ function createMountainModel() {
     rightMountain.position.set(2, -0.5, 0);
     group.add(rightMountain);
     
-    // หิมะบนยอด
+    // NEWSOYES
     const snowGeometry = new THREE.SphereGeometry(0.3, 16, 16);
     const snowMaterial = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
     const snow = new THREE.Mesh(snowGeometry, snowMaterial);
@@ -488,12 +488,12 @@ function createMountainModel() {
     currentModel = group;
 }
 
-// โหลดโมเดล GLB
+// NEWSOYES
 function loadGLBModel(modelPath) {
     console.log('Starting to load GLB model from:', modelPath);
     const loader = new THREE.GLTFLoader();
     
-    // แสดง loading indicator
+            // NEWSOYES
     showLoadingIndicator();
     
     loader.load(
@@ -503,37 +503,37 @@ function loadGLBModel(modelPath) {
             console.log('Model scene:', gltf.scene);
             console.log('Animations:', gltf.animations);
             
-            // ซ่อน loading indicator
+            // NEWSOYES
             hideLoadingIndicator();
             
-            // ล้างโมเดลเก่า
+            // NEWSOYES
             if (currentModel) {
                 scene.remove(currentModel);
             }
             
             const model = gltf.scene;
             
-            // ปรับขนาดโมเดลให้เหมาะสม
+            // NEWSOYES
             const box = new THREE.Box3().setFromObject(model);
             const size = box.getSize(new THREE.Vector3());
             const maxDim = Math.max(size.x, size.y, size.z);
-            const scale = 3 / maxDim; // ปรับให้สูงประมาณ 3 หน่วย
+            const scale = 3 / maxDim; // NEWSOYES
             model.scale.setScalar(scale);
             
             console.log('Model scaled by:', scale);
             console.log('Model size:', size);
             
-            // จัดตำแหน่งโมเดลให้อยู่กลาง
+            // NEWSOYES
             const center = box.getCenter(new THREE.Vector3());
             model.position.sub(center.multiplyScalar(scale));
             
-            // เพิ่มแสงให้โมเดล
+            // NEWSOYES
             model.traverse((child) => {
                 if (child.isMesh) {
                     child.castShadow = true;
                     child.receiveShadow = true;
                     
-                    // เพิ่ม material ที่สวยงาม
+                    // NEWSOYES
                     if (child.material) {
                         child.material.envMapIntensity = 1;
                         child.material.needsUpdate = true;
@@ -546,24 +546,24 @@ function loadGLBModel(modelPath) {
             
             console.log('Model added to scene');
             
-            // เริ่ม animation
+            // NEWSOYES
             if (gltf.animations && gltf.animations.length > 0) {
                 const mixer = new THREE.AnimationMixer(model);
                 const action = mixer.clipAction(gltf.animations[0]);
                 action.play();
                 
-                // อัปเดต mixer ใน animation loop
+                // NEWSOYES
                 currentMixer = mixer;
                 console.log('Animation started');
             }
         },
         function (progress) {
-            // แสดงความคืบหน้า
+                // NEWSOYES
             console.log('Loading progress:', (progress.loaded / progress.total * 100).toFixed(2) + '%');
             updateLoadingProgress(progress);
         },
         function (error) {
-            // แสดงข้อผิดพลาด
+            // NEWSOYES
             console.error('Error loading GLB model:', error);
             hideLoadingIndicator();
             showErrorMessage('ไม่สามารถโหลดโมเดล 3D ได้: ' + error.message);
@@ -571,7 +571,7 @@ function loadGLBModel(modelPath) {
     );
 }
 
-// แสดง loading indicator
+// NEWSOYES
 function showLoadingIndicator() {
     const container = document.getElementById('modelContainer');
     const loadingDiv = document.createElement('div');
@@ -588,7 +588,7 @@ function showLoadingIndicator() {
     container.appendChild(loadingDiv);
 }
 
-// ซ่อน loading indicator
+// NEWSOYES
 function hideLoadingIndicator() {
     const loadingDiv = document.getElementById('loadingIndicator');
     if (loadingDiv) {
@@ -596,7 +596,7 @@ function hideLoadingIndicator() {
     }
 }
 
-// อัปเดตความคืบหน้า
+// NEWSOYES
 function updateLoadingProgress(progress) {
     const progressBar = document.querySelector('.progress-bar');
     if (progressBar) {
@@ -605,7 +605,7 @@ function updateLoadingProgress(progress) {
     }
 }
 
-// แสดงข้อความผิดพลาด
+// NEWSOYES
 function showErrorMessage(message) {
     const container = document.getElementById('modelContainer');
     const errorDiv = document.createElement('div');
@@ -619,7 +619,7 @@ function showErrorMessage(message) {
     container.appendChild(errorDiv);
 }
 
-// Animation loop
+// NEWSOYES
 function animate() {
     requestAnimationFrame(animate);
     
@@ -627,9 +627,9 @@ function animate() {
         currentModel.rotation.y += 0.01;
     }
     
-    // อัปเดต animation mixer สำหรับ GLB models
+    // NEWSOYES
     if (currentMixer) {
-        currentMixer.update(0.016); // ประมาณ 60fps
+        currentMixer.update(0.016); // NEWSOYES
     }
     
     if (controls) {
@@ -641,7 +641,7 @@ function animate() {
     }
 }
 
-// ปรับขนาดเมื่อหน้าจอเปลี่ยน
+// NEWSOYES
 function onWindowResize() {
     const container = document.getElementById('modelContainer');
     if (camera && renderer && container) {
@@ -651,7 +651,7 @@ function onWindowResize() {
     }
 }
 
-// เพิ่ม Particle Effects
+// NEWSOYES
 function addParticleEffects() {
     const particles = document.createElement('div');
     particles.className = 'particles';
@@ -683,7 +683,7 @@ function addParticleEffects() {
     }
 }
 
-// เพิ่ม CSS animation สำหรับ particles
+    // NEWSOYES
 const style = document.createElement('style');
 style.textContent = `
     @keyframes float-particle {

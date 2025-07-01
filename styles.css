@@ -1,4 +1,4 @@
-/* Cyberpunk Theme CSS */
+/* NEWSOYES*/
 * {
     margin: 0;
     padding: 0;
@@ -24,7 +24,7 @@ body {
     position: relative;
 }
 
-/* Cyberpunk Background Effects */
+/* NEWSOYES*/
 .cyberpunk-bg {
     position: fixed;
     top: 0;
@@ -72,7 +72,7 @@ body {
     100% { transform: translateY(4px); }
 }
 
-/* Header Styles */
+/* NEWSOYES*/
 .cyber-header {
     background: rgba(10, 10, 10, 0.9);
     backdrop-filter: blur(10px);
@@ -124,7 +124,7 @@ body {
     font-weight: 300;
 }
 
-/* Glitch Effect */
+/* NEWSOYES*/
 .glitch {
     position: relative;
     display: inline-block;
@@ -162,7 +162,7 @@ body {
     21%, 62% { transform: translate(2px, -2px); }
 }
 
-/* Catalog Container */
+/* NEWSOYES*/
 .catalog-container {
     max-width: 1400px;
     margin: 3rem auto;
@@ -176,7 +176,7 @@ body {
     margin-top: 2rem;
 }
 
-/* Catalog Items */
+/* NEWSOYES*/
 .catalog-item {
     perspective: 1000px;
 }
@@ -245,7 +245,7 @@ body {
     line-height: 1.6;
 }
 
-/* Cyber Button */
+/* NEWSOYES*/
 .cyber-button {
     background: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink));
     color: var(--dark-bg);
@@ -283,7 +283,7 @@ body {
     box-shadow: 0 0 20px var(--neon-cyan);
 }
 
-/* Modal Styles */
+/* NEWSOYES*/
 .modal {
     display: none;
     position: fixed;
@@ -390,7 +390,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* Loading Indicator */
+/* NEWSOYES*/
 #loadingIndicator {
     position: absolute;
     top: 0;
@@ -447,7 +447,7 @@ body {
     border-radius: 2px;
 }
 
-/* Error Message */
+/* NEWSOYES*/
 .error-message {
     position: absolute;
     top: 50%;
@@ -484,7 +484,7 @@ body {
     box-shadow: 0 0 10px #ff0000;
 }
 
-/* Responsive Design */
+/* NEWSOYES*/
 @media (max-width: 768px) {
     .main-title {
         font-size: 2.5rem;
