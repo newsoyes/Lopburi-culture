@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วัฒนธรรมลพบุรี - Cyberpunk Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div class="cyberpunk-bg">
+        <div class="grid-overlay"></div>
+        <div class="scanlines"></div>
+    </div>
+
+    <header class="cyber-header">
+        <div class="header-content">
+            <h1 class="main-title">
+                <span class="glitch" data-text="วัฒนธรรมลพบุรี">วัฒนธรรมลพบุรี</span>
+            </h1>
+            <p class="subtitle">CYBERPUNK CULTURAL CATALOG</p>
+        </div>
+    </header>
+
+    <main class="catalog-container">
+        <div class="catalog-grid">
+            <div class="catalog-item" data-item="monkey">
+                <div class="item-card">
+                    <div class="item-image">
+                        <div class="image-placeholder">🐒</div>
+                    </div>
+                    <div class="item-info">
+                        <h3>ลิงลพบุรี</h3>
+                        <p>ลิงแสมที่อาศัยในเมืองลพบุรี</p>
+                        <div class="cyber-button">ดูโมเดล 3D</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-item="salted-egg">
+                <div class="item-card">
+                    <div class="item-image">
+                        <div class="image-placeholder">🥚</div>
+                    </div>
+                    <div class="item-info">
+                        <h3>ไข่เค็มลพบุรี</h3>
+                        <p>ไข่เค็มที่มีชื่อเสียงของลพบุรี</p>
+                        <div class="cyber-button">ดูโมเดล 3D</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-item="chalk">
+                <div class="item-card">
+                    <div class="item-image">
+                        <div class="image-placeholder">🖍️</div>
+                    </div>
+                    <div class="item-info">
+                        <h3>ดินสอพอง</h3>
+                        <p>ดินสอพองคุณภาพดีจากลพบุรี</p>
+                        <div class="cyber-button">ดูโมเดล 3D</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-item="prang">
+                <div class="item-card">
+                    <div class="item-image">
+                        <div class="image-placeholder">🏛️</div>
+                    </div>
+                    <div class="item-info">
+                        <h3>ปรางค์สามยอด</h3>
+                        <p>โบราณสถานสำคัญของลพบุรี</p>
+                        <div class="cyber-button">ดูโมเดล 3D</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-item="dam">
+                <div class="item-card">
+                    <div class="item-image">
+                        <div class="image-placeholder">💧</div>
+                    </div>
+                    <div class="item-info">
+                        <h3>เขื่อนป่าสักชลสิทธิ์</h3>
+                        <p>เขื่อนใหญ่ที่สุดในประเทศไทย</p>
+                        <div class="cyber-button">ดูโมเดล 3D</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-item" data-item="mountain">
+                <div class="item-card">
+                    <div class="item-image">
+                        <div class="image-placeholder">⛰️</div>
+                    </div>
+                    <div class="item-info">
+                        <h3>เขาจีนแล</h3>
+                        <p>ภูเขาสูงที่มีความสำคัญทางประวัติศาสตร์</p>
+                        <div class="cyber-button">ดูโมเดล 3D</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for 3D Model Viewer -->
+    <div id="modelModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">โมเดล 3D</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="modelContainer"></div>
+                <div class="model-info">
+                    <div id="modelDescription"></div>
+                    <div class="controls-info">
+                        <p>🖱️ คลิกและลากเพื่อหมุน | 🔍 ใช้เมาส์เพื่อซูม</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

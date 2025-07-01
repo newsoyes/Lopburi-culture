@@ -1,0 +1,430 @@
+/* Cyberpunk Theme CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --neon-cyan: #00ffff;
+    --neon-pink: #ff00ff;
+    --neon-yellow: #ffff00;
+    --dark-bg: #0a0a0a;
+    --darker-bg: #050505;
+    --grid-color: rgba(0, 255, 255, 0.1);
+    --text-glow: 0 0 10px var(--neon-cyan);
+    --box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--dark-bg);
+    color: #ffffff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Cyberpunk Background Effects */
+.cyberpunk-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(45deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-move 20s linear infinite;
+}
+
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        transparent 50%,
+        rgba(0, 255, 255, 0.02) 50%
+    );
+    background-size: 100% 4px;
+    animation: scanlines 0.1s linear infinite;
+}
+
+@keyframes grid-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+@keyframes scanlines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(4px); }
+}
+
+/* Header Styles */
+.cyber-header {
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--neon-cyan);
+    padding: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+    animation: header-scan 3s ease-in-out infinite;
+}
+
+@keyframes header-scan {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+.header-content {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.main-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--neon-cyan);
+    text-shadow: var(--text-glow);
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitch-1 2s infinite;
+    color: var(--neon-pink);
+    z-index: -1;
+}
+
+.glitch::after {
+    animation: glitch-2 2s infinite;
+    color: var(--neon-yellow);
+    z-index: -2;
+}
+
+@keyframes glitch-1 {
+    0%, 14%, 15%, 49%, 50%, 99%, 100% { transform: translate(0); }
+    15%, 49% { transform: translate(-2px, 2px); }
+}
+
+@keyframes glitch-2 {
+    0%, 20%, 21%, 62%, 63%, 99%, 100% { transform: translate(0); }
+    21%, 62% { transform: translate(2px, -2px); }
+}
+
+/* Catalog Container */
+.catalog-container {
+    max-width: 1400px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Catalog Items */
+.catalog-item {
+    perspective: 1000px;
+}
+
+.item-card {
+    background: rgba(20, 20, 20, 0.8);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.item-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.item-card:hover::before {
+    left: 100%;
+}
+
+.item-card:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: var(--box-shadow);
+    border-color: var(--neon-pink);
+}
+
+.item-image {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.image-placeholder {
+    font-size: 4rem;
+    filter: drop-shadow(0 0 10px var(--neon-cyan));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.item-info h3 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    color: var(--neon-cyan);
+    text-shadow: var(--text-glow);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.item-info p {
+    color: #cccccc;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Cyber Button */
+.cyber-button {
+    background: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink));
+    color: var(--dark-bg);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.cyber-button:hover::before {
+    left: 100%;
+}
+
+.cyber-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: var(--darker-bg);
+    margin: 5% auto;
+    padding: 0;
+    border: 2px solid var(--neon-cyan);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 1000px;
+    position: relative;
+    animation: modal-slide-in 0.3s ease;
+}
+
+@keyframes modal-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    background: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink));
+    color: var(--dark-bg);
+    padding: 1.5rem;
+    border-radius: 13px 13px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    margin: 0;
+}
+
+.close {
+    color: var(--dark-bg);
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close:hover {
+    transform: scale(1.2);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+#modelContainer {
+    width: 100%;
+    height: 400px;
+    background: var(--dark-bg);
+    border: 1px solid var(--neon-cyan);
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.model-info {
+    background: rgba(0, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+#modelDescription {
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.controls-info {
+    background: rgba(255, 0, 255, 0.1);
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 0, 255, 0.3);
+}
+
+.controls-info p {
+    color: var(--neon-pink);
+    text-align: center;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    #modelContainer {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .catalog-container {
+        padding: 0 1rem;
+    }
+    
+    .item-card {
+        padding: 1rem;
+    }
+} 
