@@ -1169,7 +1169,7 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-// ====== MONKEY PLAYGROUND ======
+// ====== MONKEY PLAYGROUND (ปรับปรุงกระโดด) ======
 const monkeyArea = document.getElementById('monkey-area');
 let monkeys = [];
 
@@ -1178,7 +1178,6 @@ function randomInt(min, max) {
 }
 
 function createMonkey(x, y) {
-  // SVG ลิงน่ารัก
   const monkey = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   monkey.setAttribute('width', 60);
   monkey.setAttribute('height', 60);
@@ -1203,28 +1202,43 @@ function createMonkey(x, y) {
     <ellipse cx="12" cy="38" rx="3" ry="7" fill="#a67c52"/>
     <ellipse cx="48" cy="38" rx="3" ry="7" fill="#a67c52"/>
   `;
-  // เมื่อคลิกที่ลิง จะเพิ่มลิงอีก 1 ตัว
   monkey.addEventListener('click', (e) => {
     e.stopPropagation();
     spawnMonkey();
   });
   monkeyArea.appendChild(monkey);
+  // เพิ่ม state สำหรับกระโดด
+  monkey._jump = {
+    vx: randomInt(-3, 3) || 2,
+    vy: -randomInt(8, 16),
+    gravity: 0.7 + Math.random()*0.2,
+    ground: false
+  };
   return monkey;
 }
 
 function moveMonkey(monkey) {
   const areaRect = monkeyArea.getBoundingClientRect();
-  let x = parseInt(monkey.style.left);
-  let y = parseInt(monkey.style.top);
-  let dx = randomInt(-2, 2);
-  let dy = randomInt(-1, 2);
-  // ขอบเขต
-  x += dx * randomInt(5, 15);
-  y += dy * randomInt(5, 10);
-  x = Math.max(0, Math.min(areaRect.width - 60, x));
-  y = Math.max(0, Math.min(areaRect.height - 60, y));
-  monkey.style.left = x + 'px';
-  monkey.style.top = y + 'px';
+  let x = parseFloat(monkey.style.left);
+  let y = parseFloat(monkey.style.top);
+  let st = monkey._jump;
+  // กระโดด
+  if (!st.ground) {
+    st.vy += st.gravity;
+    x += st.vx;
+    y += st.vy;
+    // ชนขอบล่าง
+    if (y > areaRect.height - 60) {
+      y = areaRect.height - 60;
+      st.vy = -randomInt(8, 16);
+      st.vx = randomInt(-3, 3) || 2;
+    }
+    // ชนขอบซ้าย/ขวา
+    if (x < 0) { x = 0; st.vx *= -1; }
+    if (x > areaRect.width - 60) { x = areaRect.width - 60; st.vx *= -1; }
+    monkey.style.left = x + 'px';
+    monkey.style.top = y + 'px';
+  }
 }
 
 function animateMonkeys() {
@@ -1235,12 +1249,11 @@ function animateMonkeys() {
 function spawnMonkey() {
   const areaRect = monkeyArea.getBoundingClientRect();
   const x = randomInt(0, Math.max(0, areaRect.width - 60));
-  const y = randomInt(0, Math.max(0, areaRect.height - 60));
+  const y = areaRect.height - 60;
   const monkey = createMonkey(x, y);
   monkeys.push(monkey);
 }
 
-// เริ่มต้นด้วยลิง 1 ตัว
 monkeyArea.addEventListener('click', spawnMonkey);
 window.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
@@ -1249,49 +1262,41 @@ window.addEventListener('DOMContentLoaded', () => {
   }, 500);
 });
 
-// ====== REALTIME CHAT (Firebase) ======
-// 1. ใส่ config Firebase ของคุณที่นี่
-const firebaseConfig = {
-  apiKey: "AIzaSyAnlWTJKOnU6iIUx1KZd28N1jx0bPnKK_s",
-  authDomain: "cultureoflopburi.firebaseapp.com",
-  databaseURL: "https://cultureoflopburi-default-rtdb.firebaseio.com",
-  projectId: "cultureoflopburi",
-  storageBucket: "cultureoflopburi.appspot.com",
-  messagingSenderId: "1012182451991",
-  appId: "1:1012182451991:web:d2ce5abe68cddb42779952",
-  measurementId: "G-R5684EK0Y0"
-};
+// ====== REALTIME CHAT (Firebase ปรับปรุง) ======
+// เพิ่มช่องกรอกชื่อผู้ส่ง
+if (!document.getElementById('chat-name')) {
+  const nameInput = document.createElement('input');
+  nameInput.type = 'text';
+  nameInput.id = 'chat-name';
+  nameInput.placeholder = 'ชื่อผู้ส่ง';
+  nameInput.maxLength = 20;
+  nameInput.style.marginRight = '8px';
+  const chatForm = document.getElementById('chat-form');
+  chatForm.insertBefore(nameInput, chatForm.firstChild);
+}
 
-// 2. เริ่มต้น Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-const chatRef = db.ref('chat-messages');
-
-const chatForm = document.getElementById('chat-form');
-const chatInput = document.getElementById('chat-input');
-const chatMessages = document.getElementById('chat-messages');
-
-// 3. ฟังก์ชันแสดงข้อความ
+// ปรับปรุงการแสดงข้อความและส่งข้อความ
 function addChatMessage(msg) {
   const div = document.createElement('div');
   div.className = 'chat-message';
-  div.textContent = msg.text;
+  div.innerHTML = `<b>${msg.name ? msg.name : 'ไม่ระบุ'}:</b> ${msg.text}`;
   chatMessages.appendChild(div);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-// 4. รับข้อความแบบเรียลไทม์
 chatRef.limitToLast(50).on('child_added', (snapshot) => {
   const msg = snapshot.val();
   addChatMessage(msg);
 });
 
-// 5. ส่งข้อความ
 chatForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const text = chatInput.value.trim();
+  const name = document.getElementById('chat-name').value.trim() || 'ไม่ระบุ';
   if (text) {
-    chatRef.push({ text });
+    const msg = { text, name };
+    chatRef.push(msg);
+    addChatMessage(msg); // แสดงทันที
     chatInput.value = '';
   }
 }); 

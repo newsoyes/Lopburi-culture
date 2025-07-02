@@ -991,24 +991,28 @@ body {
     background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
 }
 
-/* Sidebar ข่าวสาร */
+/* Sidebar ข่าวสาร (ธีม cyberpunk) */
 #news-sidebar {
     position: fixed;
     top: 0;
     right: 0;
     width: 300px;
     height: 100vh;
-    background: #fffbe7;
-    border-left: 2px solid #f5d76e;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.05);
+    background: linear-gradient(135deg, #181c2f 80%, #00fff7 100%);
+    border-left: 3px solid #00fff7;
+    box-shadow: -2px 0 16px #00fff7a0;
     padding: 20px 10px 20px 20px;
     z-index: 1000;
     overflow-y: auto;
+    color: #fff;
+    font-family: 'Orbitron', 'Rajdhani', sans-serif;
 }
 #news-sidebar h2 {
     font-size: 1.3em;
     margin-bottom: 10px;
-    color: #e67e22;
+    color: #00fff7;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px #00fff7;
 }
 #news-list {
     list-style: none;
@@ -1018,66 +1022,80 @@ body {
 #news-list li {
     margin-bottom: 12px;
     padding: 8px 10px;
-    background: #fff9e3;
+    background: rgba(0,255,247,0.08);
     border-radius: 8px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    box-shadow: 0 1px 4px #00fff733;
+    color: #fff;
 }
 
-/* กล่องแชท */
+/* กล่องแชท (ธีม cyberpunk) */
 #chat-container {
     position: fixed;
     bottom: 0;
     left: 0;
     width: calc(100vw - 300px);
     max-width: 800px;
-    background: #f7f7fa;
-    border-top: 2px solid #f5d76e;
-    box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+    background: linear-gradient(135deg, #181c2f 80%, #00fff7 100%);
+    border-top: 3px solid #00fff7;
+    box-shadow: 0 -2px 16px #00fff7a0;
     padding: 10px 10px 5px 10px;
     z-index: 1001;
     display: flex;
     flex-direction: column;
     margin-right: 300px;
+    color: #fff;
+    font-family: 'Orbitron', 'Rajdhani', sans-serif;
 }
 #chat-messages {
     height: 120px;
     overflow-y: auto;
     margin-bottom: 8px;
     font-size: 1em;
+    background: rgba(0,255,247,0.08);
+    border-radius: 8px;
+    padding: 8px 10px;
+    box-shadow: 0 1px 4px #00fff733;
 }
 #chat-form {
     display: flex;
+    gap: 8px;
 }
-#chat-input {
+#chat-input, #chat-name {
     flex: 1;
     padding: 8px;
     border-radius: 6px;
-    border: 1px solid #e1e1e1;
-    margin-right: 8px;
+    border: 1px solid #00fff7;
+    background: #101426;
+    color: #fff;
+    font-family: inherit;
+    margin-right: 0;
+}
+#chat-name {
+    max-width: 120px;
+    flex: none;
 }
 #chat-form button {
-    background: #f5d76e;
+    background: #00fff7;
     border: none;
     border-radius: 6px;
     padding: 8px 16px;
-    color: #fff;
+    color: #181c2f;
     font-weight: bold;
     cursor: pointer;
     transition: background 0.2s;
+    font-family: inherit;
+    box-shadow: 0 0 8px #00fff7;
 }
 #chat-form button:hover {
-    background: #e67e22;
+    background: #00bfae;
 }
 
-/* พื้นที่ลิงวิ่งเล่น */
-#monkey-area {
-    position: relative;
-    min-height: 400px;
-    margin: 40px 320px 160px 0;
-    background: #eafaf1;
-    border-radius: 18px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    overflow: hidden;
+.chat-message {
+    margin-bottom: 4px;
+    padding: 2px 0;
+    word-break: break-word;
+    font-size: 1em;
+    text-shadow: 0 0 4px #00fff7cc;
 }
 
 @media (max-width: 900px) {
@@ -1091,4 +1109,15 @@ body {
     #monkey-area {
         margin-right: 0;
     }
+}
+
+/* พื้นที่ลิงวิ่งเล่น */
+#monkey-area {
+    position: relative;
+    min-height: 400px;
+    margin: 40px 320px 160px 0;
+    background: #eafaf1;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    overflow: hidden;
 } 
