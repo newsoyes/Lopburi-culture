@@ -137,6 +137,26 @@
       <div id="modal-content" class="modal-content"></div>
     </div>
 
+    <div id="main-content">
+        <div id="monkey-area"></div>
+    </div>
+    <aside id="news-sidebar">
+        <h2>ข่าวสาร</h2>
+        <ul id="news-list">
+            <!-- ข่าวสารจะถูกเพิ่มที่นี่ -->
+        </ul>
+    </aside>
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="พิมพ์ข้อความ..." autocomplete="off" />
+            <button type="submit">ส่ง</button>
+        </form>
+    </div>
+
+    <!-- Firebase App (v9+) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 

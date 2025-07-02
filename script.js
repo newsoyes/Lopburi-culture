@@ -1167,4 +1167,131 @@ function showModal(itemKey) {
 function closeModal() {
     const modal = document.getElementById('modal');
     modal.style.display = 'none';
-} 
+}
+
+// ====== MONKEY PLAYGROUND ======
+const monkeyArea = document.getElementById('monkey-area');
+let monkeys = [];
+
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function createMonkey(x, y) {
+  // SVG ลิงน่ารัก
+  const monkey = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  monkey.setAttribute('width', 60);
+  monkey.setAttribute('height', 60);
+  monkey.setAttribute('viewBox', '0 0 60 60');
+  monkey.style.position = 'absolute';
+  monkey.style.left = x + 'px';
+  monkey.style.top = y + 'px';
+  monkey.style.cursor = 'pointer';
+  monkey.innerHTML = `
+    <circle cx="30" cy="35" r="18" fill="#a67c52"/>
+    <ellipse cx="30" cy="25" rx="13" ry="12" fill="#a67c52"/>
+    <ellipse cx="18" cy="25" rx="5" ry="6" fill="#a67c52"/>
+    <ellipse cx="42" cy="25" rx="5" ry="6" fill="#a67c52"/>
+    <ellipse cx="30" cy="30" rx="8" ry="7" fill="#fff3e0"/>
+    <ellipse cx="24" cy="28" rx="2.5" ry="3" fill="#fff"/>
+    <ellipse cx="36" cy="28" rx="2.5" ry="3" fill="#fff"/>
+    <circle cx="24" cy="28" r="1.2" fill="#333"/>
+    <circle cx="36" cy="28" r="1.2" fill="#333"/>
+    <ellipse cx="30" cy="34" rx="3" ry="2" fill="#e07a5f"/>
+    <ellipse cx="20" cy="45" rx="4" ry="2.5" fill="#a67c52"/>
+    <ellipse cx="40" cy="45" rx="4" ry="2.5" fill="#a67c52"/>
+    <ellipse cx="12" cy="38" rx="3" ry="7" fill="#a67c52"/>
+    <ellipse cx="48" cy="38" rx="3" ry="7" fill="#a67c52"/>
+  `;
+  // เมื่อคลิกที่ลิง จะเพิ่มลิงอีก 1 ตัว
+  monkey.addEventListener('click', (e) => {
+    e.stopPropagation();
+    spawnMonkey();
+  });
+  monkeyArea.appendChild(monkey);
+  return monkey;
+}
+
+function moveMonkey(monkey) {
+  const areaRect = monkeyArea.getBoundingClientRect();
+  let x = parseInt(monkey.style.left);
+  let y = parseInt(monkey.style.top);
+  let dx = randomInt(-2, 2);
+  let dy = randomInt(-1, 2);
+  // ขอบเขต
+  x += dx * randomInt(5, 15);
+  y += dy * randomInt(5, 10);
+  x = Math.max(0, Math.min(areaRect.width - 60, x));
+  y = Math.max(0, Math.min(areaRect.height - 60, y));
+  monkey.style.left = x + 'px';
+  monkey.style.top = y + 'px';
+}
+
+function animateMonkeys() {
+  monkeys.forEach(monkey => moveMonkey(monkey));
+  requestAnimationFrame(animateMonkeys);
+}
+
+function spawnMonkey() {
+  const areaRect = monkeyArea.getBoundingClientRect();
+  const x = randomInt(0, Math.max(0, areaRect.width - 60));
+  const y = randomInt(0, Math.max(0, areaRect.height - 60));
+  const monkey = createMonkey(x, y);
+  monkeys.push(monkey);
+}
+
+// เริ่มต้นด้วยลิง 1 ตัว
+monkeyArea.addEventListener('click', spawnMonkey);
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    spawnMonkey();
+    animateMonkeys();
+  }, 500);
+});
+
+// ====== REALTIME CHAT (Firebase) ======
+// 1. ใส่ config Firebase ของคุณที่นี่
+const firebaseConfig = {
+  apiKey: "AIzaSyAnlWTJKOnU6iIUx1KZd28N1jx0bPnKK_s",
+  authDomain: "cultureoflopburi.firebaseapp.com",
+  databaseURL: "https://cultureoflopburi-default-rtdb.firebaseio.com",
+  projectId: "cultureoflopburi",
+  storageBucket: "cultureoflopburi.appspot.com",
+  messagingSenderId: "1012182451991",
+  appId: "1:1012182451991:web:d2ce5abe68cddb42779952",
+  measurementId: "G-R5684EK0Y0"
+};
+
+// 2. เริ่มต้น Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const chatRef = db.ref('chat-messages');
+
+const chatForm = document.getElementById('chat-form');
+const chatInput = document.getElementById('chat-input');
+const chatMessages = document.getElementById('chat-messages');
+
+// 3. ฟังก์ชันแสดงข้อความ
+function addChatMessage(msg) {
+  const div = document.createElement('div');
+  div.className = 'chat-message';
+  div.textContent = msg.text;
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// 4. รับข้อความแบบเรียลไทม์
+chatRef.limitToLast(50).on('child_added', (snapshot) => {
+  const msg = snapshot.val();
+  addChatMessage(msg);
+});
+
+// 5. ส่งข้อความ
+chatForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const text = chatInput.value.trim();
+  if (text) {
+    chatRef.push({ text });
+    chatInput.value = '';
+  }
+}); 
