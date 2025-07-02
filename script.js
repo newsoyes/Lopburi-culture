@@ -1169,7 +1169,7 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-// ====== MONKEY GLOBAL ======
+// ====== MONKEY GLOBAL (ปุ่มเพิ่มลิง) ======
 let monkeys = [];
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -1182,7 +1182,7 @@ function createMonkey(x, y) {
   monkey.classList.add('monkey-global');
   monkey.style.left = x + 'px';
   monkey.style.top = y + 'px';
-  monkey.style.cursor = 'pointer';
+  monkey.style.cursor = 'default';
   monkey.innerHTML = `
     <circle cx="30" cy="35" r="18" fill="#a67c52"/>
     <ellipse cx="30" cy="25" rx="13" ry="12" fill="#a67c52"/>
@@ -1199,10 +1199,6 @@ function createMonkey(x, y) {
     <ellipse cx="12" cy="38" rx="3" ry="7" fill="#a67c52"/>
     <ellipse cx="48" cy="38" rx="3" ry="7" fill="#a67c52"/>
   `;
-  monkey.addEventListener('click', (e) => {
-    e.stopPropagation();
-    spawnMonkey();
-  });
   document.body.appendChild(monkey);
   monkey._jump = {
     vx: randomInt(-3, 3) || 2,
@@ -1245,23 +1241,72 @@ function spawnMonkey() {
   const monkey = createMonkey(x, y);
   monkeys.push(monkey);
 }
-document.body.addEventListener('click', spawnMonkey);
 window.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     spawnMonkey();
     animateMonkeys();
   }, 500);
+  // ปุ่มเพิ่มลิง
+  const addMonkeyBtn = document.getElementById('add-monkey-btn');
+  if (addMonkeyBtn) {
+    addMonkeyBtn.onclick = () => spawnMonkey();
+  }
 });
 
-// ข่าวสาร overlay toggle
+// ข่าวสาร overlay toggle (slide-in)
 window.addEventListener('DOMContentLoaded', () => {
   const newsSidebar = document.getElementById('news-sidebar');
   const newsBtn = document.getElementById('news-toggle-btn');
   const newsClose = document.getElementById('news-close-btn');
   if (newsBtn && newsSidebar) {
-    newsBtn.onclick = () => newsSidebar.classList.add('open');
+    newsBtn.onclick = () => {
+      newsSidebar.style.display = 'flex';
+      setTimeout(() => newsSidebar.classList.add('open'), 10);
+    };
   }
   if (newsClose && newsSidebar) {
-    newsClose.onclick = () => newsSidebar.classList.remove('open');
+    newsClose.onclick = () => {
+      newsSidebar.classList.remove('open');
+      setTimeout(() => newsSidebar.style.display = 'none', 400);
+    };
+  }
+});
+
+// ====== REALTIME CHAT (required name, sync) ======
+const chatForm = document.getElementById('chat-form');
+const chatInput = document.getElementById('chat-input');
+const chatMessages = document.getElementById('chat-messages');
+const chatName = document.getElementById('chat-name');
+
+function addChatMessage(msg) {
+  const div = document.createElement('div');
+  div.className = 'chat-message';
+  div.innerHTML = `<b>${msg.name}:</b> ${msg.text}`;
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+chatRef.off(); // reset listener
+chatRef.limitToLast(50).on('child_added', (snapshot) => {
+  const msg = snapshot.val();
+  addChatMessage(msg);
+});
+
+chatForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const text = chatInput.value.trim();
+  const name = chatName.value.trim();
+  if (!name) {
+    chatName.focus();
+    chatName.setCustomValidity('กรุณากรอกชื่อผู้ส่ง');
+    chatName.reportValidity();
+    return;
+  } else {
+    chatName.setCustomValidity('');
+  }
+  if (text) {
+    const msg = { text, name };
+    chatRef.push(msg);
+    chatInput.value = '';
   }
 }); 

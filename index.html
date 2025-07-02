@@ -23,9 +23,7 @@
             </h1>
             <p class="subtitle">Lopburi CULTURAL CATALOG</p>
             <div class="header-buttons">
-                <button onclick="showModal('games')" class="cyber-btn games-btn">
-                    🎮 เกมส์และกิจกรรม
-                </button>
+                <button onclick="showModal('games')" class="cyber-btn games-btn">🎮 เกมส์และกิจกรรม</button>
                 <button id="news-toggle-btn" class="cyber-btn news-btn" type="button">📰 ข่าวสาร</button>
             </div>
         </div>
@@ -144,13 +142,17 @@
     <div id="chat-container">
         <div id="chat-messages"></div>
         <form id="chat-form">
+            <input type="text" id="chat-name" placeholder="ชื่อผู้ส่ง" maxlength="20" required />
             <input type="text" id="chat-input" placeholder="พิมพ์ข้อความ..." autocomplete="off" />
             <button type="submit">ส่ง</button>
         </form>
     </div>
 
-    <!-- เพิ่ม overlay ข่าวสาร -->
-    <div id="news-sidebar" class="news-sidebar-overlay">
+    <!-- ปุ่มเพิ่มลิง -->
+    <button id="add-monkey-btn" class="add-monkey-btn" type="button">➕ ลิง</button>
+
+    <!-- ข่าวสาร overlay (แสดงเมื่อกดปุ่มเท่านั้น) -->
+    <div id="news-sidebar" class="news-sidebar-overlay" style="display:none;">
         <div class="news-sidebar-header">
             <span>ข่าวสาร</span>
             <button id="news-close-btn" class="close-btn">✕</button>
