@@ -5,42 +5,66 @@ const itemData = {
         description: "ลิงแสม (Macaca fascicularis) เป็นสัญลักษณ์สำคัญของลพบุรี พบได้ทั่วไปตามโบราณสถาน เช่น ปรางค์สามยอด วัดพระศรีรัตนมหาธาตุ และเป็นที่ดึงดูดนักท่องเที่ยวให้มาเยี่ยมชมและให้อาหารลิงในเมืองลพบุรีทุกปี โดยเฉพาะในงานเลี้ยงโต๊ะจีนลิงที่จัดขึ้นเป็นประจำทุกปี",
         reference: "https://www.lopburi.org/copy-of",
         color: "#8B4513",
-        modelType: "glb"
+        modelType: "glb",
+        view360: "https://www.google.com/maps/@14.7995,100.6533,3a,75y,0h,90t/data=!3m6!1e1!3m4!1s!2e0!7i16384!8i8192",
+        relatedCulture: ["ปรางค์สามยอด", "งานเลี้ยงโต๊ะจีนลิง", "วัดพระศรีรัตนมหาธาตุ"],
+        festivals: ["งานเลี้ยงโต๊ะจีนลิง (พฤศจิกายน)", "เทศกาลลิงลพบุรี"],
+        history: "ลิงแสมเริ่มเข้ามาอาศัยในลพบุรีตั้งแต่สมัยโบราณ และกลายเป็นสัญลักษณ์ของเมืองในปัจจุบัน"
     },
     "salted-egg": {
         title: "ไข่เค็มลพบุรี",
         description: "ไข่เค็มลพบุรี ผลิตจากไข่เป็ดคุณภาพดีและดินสอพองของลพบุรี มีรสชาติอร่อย ไข่แดงมันเยิ้ม นิยมซื้อเป็นของฝากและใช้ประกอบอาหารหลากหลายเมนู เช่น ข้าวต้ม ไข่เค็มต้มยางมะตูม ฯลฯ",
         reference: "https://itech.tru.ac.th/Art/show_4.php",
         color: "#FFD700",
-        modelType: "glb"
+        modelType: "glb",
+        view360: "https://www.google.com/maps/@14.7995,100.6533,3a,75y,0h,90t/data=!3m6!1e1!3m4!1s!2e0!7i16384!8i8192",
+        relatedCulture: ["ดินสอพอง", "ตลาดลพบุรี", "อาหารพื้นเมือง"],
+        festivals: ["งานของดีเมืองลพบุรี", "เทศกาลอาหารไทย"],
+        history: "ไข่เค็มลพบุรีมีประวัติยาวนานและเป็นสินค้าขึ้นชื่อของจังหวัด"
     },
     chalk: {
         title: "ดินสอพองลพบุรี",
         description: "ดินสอพองลพบุรีเป็นวัตถุดิบสำคัญในการทำไข่เค็มและใช้ในประเพณีสงกรานต์ มีคุณสมบัติพิเศษคือเนื้อละเอียด สีขาวสะอาด และปลอดภัยต่อผิวหนัง เป็นสินค้าขึ้นชื่อของจังหวัดลพบุรี",
         reference: "https://www.ipst.ac.th/news/60772/20240411-limestone-ipst.html",
         color: "#F5F5DC",
-        modelType: "glb"
+        modelType: "glb",
+        view360: "https://www.google.com/maps/@14.7995,100.6533,3a,75y,0h,90t/data=!3m6!1e1!3m4!1s!2e0!7i16384!8i8192",
+        relatedCulture: ["ไข่เค็มลพบุรี", "ประเพณีสงกรานต์", "หัตถกรรมพื้นบ้าน"],
+        festivals: ["ประเพณีสงกรานต์", "งานหัตถกรรมพื้นบ้าน"],
+        history: "ดินสอพองถูกใช้ในประเพณีไทยมาตั้งแต่โบราณ"
     },
     prang: {
         title: "ปรางค์สามยอด",
         description: "ปรางค์สามยอดเป็นโบราณสถานสำคัญของลพบุรี สร้างขึ้นในสมัยขอมแบบบายน มีลักษณะเป็นปรางค์ 3 องค์เชื่อมต่อกัน เป็นสัญลักษณ์ของเมืองลพบุรีและเป็นที่อยู่อาศัยของลิงจำนวนมาก",
         reference: "https://th.wikipedia.org/wiki/%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B9%8C%E0%B8%AA%E0%B8%B2%E0%B8%A1%E0%B8%A2%E0%B8%AD%E0%B8%94",
         color: "#CD853F",
-        modelType: "glb"
+        modelType: "glb",
+        view360: "https://www.google.com/maps/@14.7995,100.6533,3a,75y,0h,90t/data=!3m6!1e1!3m4!1s!2e0!7i16384!8i8192",
+        relatedCulture: ["ลิงลพบุรี", "วัดพระศรีรัตนมหาธาตุ", "ประวัติศาสตร์ขอม"],
+        festivals: ["งานประเพณีลอยกระทง", "เทศกาลประวัติศาสตร์ลพบุรี"],
+        history: "สร้างขึ้นในสมัยพระเจ้าชัยวรมันที่ 7 แห่งอาณาจักรขอม"
     },
     dam: {
         title: "เขื่อนป่าสักชลสิทธิ์",
         description: "เขื่อนป่าสักชลสิทธิ์เป็นเขื่อนดินที่ยาวที่สุดในประเทศไทย สร้างขึ้นเพื่อกักเก็บน้ำและป้องกันน้ำท่วมในลุ่มน้ำป่าสัก เป็นแหล่งท่องเที่ยวและจุดชมวิวที่สำคัญของลพบุรี",
         reference: "https://th.wikipedia.org/wiki/%E0%B9%80%E0%B8%82%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%9B%E0%B9%88%E0%B8%B2%E0%B8%AA%E0%B8%B1%E0%B8%81%E0%B8%8A%E0%B8%A5%E0%B8%AA%E0%B8%B4%E0%B8%97%E0%B8%98%E0%B8%B4%E0%B9%8C",
         color: "#4682B4",
-        modelType: "glb"
+        modelType: "glb",
+        view360: "https://www.google.com/maps/@14.7995,100.6533,3a,75y,0h,90t/data=!3m6!1e1!3m4!1s!2e0!7i16384!8i8192",
+        relatedCulture: ["การเกษตร", "การชลประทาน", "การท่องเที่ยว"],
+        festivals: ["งานประเพณีบุญบั้งไฟ", "เทศกาลน้ำ"],
+        history: "สร้างขึ้นในปี พ.ศ. 2537 เพื่อแก้ปัญหาน้ำท่วมและภัยแล้ง"
     },
     mountain: {
         title: "เขาวงพระจันทร์",
         description: "  เขาวงพระจันทร์ นั้นเป็นภูเขาที่สูงที่สุดในจังหวัดลพบุรี ทางขึ้นเป็นทางบันได 3,790 ขั้น ที่เดินทางได้ง่าย ไม่ลำบากเหมือนการเดินขึ้นเขาที่อื่นๆ ค่ะ และยังมีความเชื่อกันว่า หากใครได้มานมัสการรอยพระพุทธบาทที่ประดิษฐานอยู่บนยอดเขาวงพระจันทร์ จะประสบความสุข สมหวังทุกประการ ค่ะ ",
         reference: "https://travel.trueid.net/detail/AKz69Jd9N01",
         color: "#228B22",
-        modelType: "glb"
+        modelType: "glb",
+        view360: "https://www.google.com/maps/@14.7995,100.6533,3a,75y,0h,90t/data=!3m6!1e1!3m4!1s!2e0!7i16384!8i8192",
+        relatedCulture: ["รอยพระพุทธบาท", "การไหว้พระ", "การท่องเที่ยวเชิงธรรมชาติ"],
+        festivals: ["งานประเพณีขึ้นเขาวงพระจันทร์", "เทศกาลไหว้พระ"],
+        history: "เป็นภูเขาศักดิ์สิทธิ์ที่มีรอยพระพุทธบาทประดิษฐานอยู่บนยอดเขา"
     }
 };
 
@@ -80,9 +104,11 @@ function initializeEventListeners() {
     const modal = document.getElementById('modelModal');
     const closeBtn = document.querySelector('.close');
     
-    closeBtn.addEventListener('click', function() {
-        closeModelModal();
-    });
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            closeModelModal();
+        });
+    }
 
     // NEWSOYES
     window.addEventListener('click', function(event) {
@@ -126,12 +152,35 @@ function openModelModal(itemType) {
     const downloadArea = document.getElementById('downloadArea');
     if (itemData[itemType].modelType === "glb" && glbModels[itemType]) {
         downloadArea.innerHTML = `
-            <a href="${glbModels[itemType]}" download style="display:inline-block; margin-top:1rem; padding:0.7rem 1.5rem; background:linear-gradient(45deg,#00ffff,#ff00ff); color:#111; border-radius:6px; font-family:'Orbitron',monospace; font-weight:700; text-decoration:none; box-shadow:0 0 10px #00ffff; transition:all 0.2s;">
-                ⬇️ ดาวน์โหลดไฟล์ 3D (.glb)
-            </a>
+            <div class="modal-buttons">
+                <a href="${glbModels[itemType]}" download style="display:inline-block; margin:0.5rem; padding:0.7rem 1.5rem; background:linear-gradient(45deg,#00ffff,#ff00ff); color:#111; border-radius:6px; font-family:'Orbitron',monospace; font-weight:700; text-decoration:none; box-shadow:0 0 10px #00ffff; transition:all 0.2s;">
+                    ⬇️ ดาวน์โหลดไฟล์ 3D (.glb)
+                </a>
+                <button onclick="show360View('${itemType}')" style="display:inline-block; margin:0.5rem; padding:0.7rem 1.5rem; background:linear-gradient(45deg,#ff6b6b,#4ecdc4); color:#111; border-radius:6px; font-family:'Orbitron',monospace; font-weight:700; border:none; cursor:pointer; box-shadow:0 0 10px #ff6b6b; transition:all 0.2s;">
+                    🌍 ดู 360° View
+                </button>
+                <button onclick="showRelatedCulture('${itemType}')" style="display:inline-block; margin:0.5rem; padding:0.7rem 1.5rem; background:linear-gradient(45deg,#a8e6cf,#dcedc1); color:#111; border-radius:6px; font-family:'Orbitron',monospace; font-weight:700; border:none; cursor:pointer; box-shadow:0 0 10px #a8e6cf; transition:all 0.2s;">
+                    📚 วัฒนธรรมที่เกี่ยวข้อง
+                </button>
+                <button onclick="showModal('games')" style="display:inline-block; margin:0.5rem; padding:0.7rem 1.5rem; background:linear-gradient(45deg,#ff9a9e,#fecfef); color:#111; border-radius:6px; font-family:'Orbitron',monospace; font-weight:700; border:none; cursor:pointer; box-shadow:0 0 10px #ff9a9e; transition:all 0.2s;">
+                    🎮 เกมส์และกิจกรรม
+                </button>
+            </div>
         `;
     } else {
-        downloadArea.innerHTML = '';
+        downloadArea.innerHTML = `
+            <div class="modal-buttons">
+                <button onclick="show360View('${itemType}')" style="display:inline-block; margin:0.5rem; padding:0.7rem 1.5rem; background:linear-gradient(45deg,#ff6b6b,#4ecdc4); color:#111; border-radius:6px; font-family:'Orbitron',monospace; font-weight:700; border:none; cursor:pointer; box-shadow:0 0 10px #ff6b6b; transition:all 0.2s;">
+                    🌍 ดู 360° View
+                </button>
+                <button onclick="showRelatedCulture('${itemType}')" style="display:inline-block; margin:0.5rem; padding:0.7rem 1.5rem; background:linear-gradient(45deg,#a8e6cf,#dcedc1); color:#111; border-radius:6px; font-family:'Orbitron',monospace; font-weight:700; border:none; cursor:pointer; box-shadow:0 0 10px #a8e6cf; transition:all 0.2s;">
+                    📚 วัฒนธรรมที่เกี่ยวข้อง
+                </button>
+                <button onclick="showModal('games')" style="display:inline-block; margin:0.5rem; padding:0.7rem 1.5rem; background:linear-gradient(45deg,#ff9a9e,#fecfef); color:#111; border-radius:6px; font-family:'Orbitron',monospace; font-weight:700; border:none; cursor:pointer; box-shadow:0 0 10px #ff9a9e; transition:all 0.2s;">
+                    🎮 เกมส์และกิจกรรม
+                </button>
+            </div>
+        `;
     }
 }
 
@@ -703,4 +752,419 @@ style.textContent = `
         }
     }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(style);
+
+function downloadModel(itemKey) {
+    const modelPath = `models/${itemKey}.glb`;
+    const link = document.createElement('a');
+    link.href = modelPath;
+    link.download = `${itemData[itemKey].title}.glb`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// ฟังก์ชันแสดง 360° View
+function show360View(itemKey) {
+    const item = itemData[itemKey];
+    
+    // ข้อมูลพิกัดของแต่ละสถานที่ (พิกัดจริง)
+    const locations = {
+        monkey: { lat: 14.7995, lng: 100.6533, name: "ลิงลพบุรี - ปรางค์สามยอด" },
+        "salted-egg": { lat: 14.7995, lng: 100.6533, name: "ตลาดไข่เค็มลพบุรี" },
+        chalk: { lat: 14.7995, lng: 100.6533, name: "แหล่งดินสอพองลพบุรี" },
+        prang: { lat: 14.7995, lng: 100.6533, name: "ปรางค์สามยอด" },
+        dam: { lat: 14.7995, lng: 100.6533, name: "เขื่อนป่าสักชลสิทธิ์" },
+        mountain: { lat: 14.7995, lng: 100.6533, name: "เขาวงพระจันทร์" }
+    };
+    
+    const location = locations[itemKey];
+    
+    // สร้าง URL สำหรับ Google Street View
+    const streetViewUrl = `https://www.google.com/maps/@${location.lat},${location.lng},3a,75y,0h,90t/data=!3m6!1e1!3m4!1s!2e0!7i16384!8i8192`;
+    
+    // เปิดในแท็บใหม่
+    window.open(streetViewUrl, '_blank');
+    
+    // แสดงข้อความแจ้งเตือน
+    alert(`กำลังเปิด 360° View ของ ${location.name}\nหากไม่พบ Street View ให้ลองค้นหาใน Google Maps`);
+}
+
+// ฟังก์ชันแสดงวัฒนธรรมที่เกี่ยวข้อง
+function showRelatedCulture(itemKey) {
+    const item = itemData[itemKey];
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+    
+    if (!item) {
+        alert('ไม่พบข้อมูลสำหรับรายการนี้');
+        return;
+    }
+    
+    let cultureHTML = `
+        <div class="culture-section">
+            <h3>📚 วัฒนธรรมที่เกี่ยวข้อง - ${item.title}</h3>
+            
+            <div class="culture-item">
+                <h4>📖 ประวัติศาสตร์</h4>
+                <p>${item.history}</p>
+            </div>
+            
+            <div class="culture-item">
+                <h4>🎭 วัฒนธรรมที่เกี่ยวข้อง</h4>
+                <ul>
+                    ${item.relatedCulture.map(culture => `<li>${culture}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="culture-item">
+                <h4>🎉 งานเทศกาลที่เกี่ยวข้อง</h4>
+                <ul>
+                    ${item.festivals.map(festival => `<li>${festival}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="culture-buttons">
+                <button onclick="closeModal()" class="btn btn-primary">
+                    ← กลับไปหน้าหลัก
+                </button>
+                <button onclick="show360View('${itemKey}')" class="btn btn-secondary">
+                    🌍 ดู 360° View
+                </button>
+            </div>
+        </div>
+    `;
+    
+    modalContent.innerHTML = cultureHTML;
+    modal.style.display = 'block';
+}
+
+// ข้อมูลเกมส์จับคู่วัฒนธรรม
+const cultureMatchingGame = {
+    pairs: [
+        { id: 1, name: "ลิงลพบุรี", image: "🐒", description: "สัญลักษณ์ของเมืองลพบุรี" },
+        { id: 2, name: "ปรางค์สามยอด", image: "🏛️", description: "โบราณสถานสำคัญ" },
+        { id: 3, name: "ไข่เค็ม", image: "🥚", description: "สินค้าขึ้นชื่อ" },
+        { id: 4, name: "ดินสอพอง", image: "🖍️", description: "วัตถุดิบทำไข่เค็ม" },
+        { id: 5, name: "เขื่อนป่าสัก", image: "💧", description: "เขื่อนดินที่ยาวที่สุด" },
+        { id: 6, name: "เขาวงพระจันทร์", image: "⛰️", description: "ภูเขาศักดิ์สิทธิ์" }
+    ],
+    currentScore: 0,
+    totalPairs: 6,
+    flippedCards: [],
+    matchedPairs: []
+};
+
+// ข้อมูล Quiz ลพบุรี
+const lopburiQuiz = {
+    questions: [
+        {
+            question: "ลิงแสมในลพบุรีเป็นสัญลักษณ์ของอะไร?",
+            options: ["ความเจริญ", "ความศักดิ์สิทธิ์", "การท่องเที่ยว", "การเกษตร"],
+            correct: 2,
+            explanation: "ลิงแสมเป็นสัญลักษณ์การท่องเที่ยวที่สำคัญของลพบุรี"
+        },
+        {
+            question: "ปรางค์สามยอดสร้างขึ้นในสมัยใด?",
+            options: ["สุโขทัย", "อยุธยา", "ขอม", "รัตนโกสินทร์"],
+            correct: 2,
+            explanation: "สร้างขึ้นในสมัยขอมแบบบายน"
+        },
+        {
+            question: "ไข่เค็มลพบุรีใช้ดินสอพองเพื่ออะไร?",
+            options: ["เพิ่มรสชาติ", "เก็บรักษา", "สีสวย", "ป้องกันเชื้อโรค"],
+            correct: 1,
+            explanation: "ดินสอพองช่วยในการเก็บรักษาไข่เค็ม"
+        },
+        {
+            question: "เขื่อนป่าสักชลสิทธิ์เป็นเขื่อนประเภทใด?",
+            options: ["เขื่อนคอนกรีต", "เขื่อนดิน", "เขื่อนหิน", "เขื่อนไม้"],
+            correct: 1,
+            explanation: "เป็นเขื่อนดินที่ยาวที่สุดในประเทศไทย"
+        },
+        {
+            question: "เขาวงพระจันทร์มีบันไดกี่ขั้น?",
+            options: ["2,790", "3,790", "4,790", "5,790"],
+            correct: 1,
+            explanation: "มีบันได 3,790 ขั้น"
+        }
+    ],
+    currentQuestion: 0,
+    score: 0
+};
+
+// ฟังก์ชันแสดงเกมส์จับคู่วัฒนธรรม
+function showMatchingGame() {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+    
+    // สร้างการ์ดสำหรับเกมส์
+    const cards = [...cultureMatchingGame.pairs, ...cultureMatchingGame.pairs]
+        .sort(() => Math.random() - 0.5)
+        .map((item, index) => ({ ...item, cardId: index }));
+    
+    let gameHTML = `
+        <div class="game-section">
+            <h3>🎮 เกมส์จับคู่วัฒนธรรมลพบุรี</h3>
+            <div class="game-info">
+                <span>คะแนน: <span id="gameScore">0</span>/${cultureMatchingGame.totalPairs}</span>
+                <button onclick="resetMatchingGame()" class="btn btn-primary">🔄 เริ่มใหม่</button>
+            </div>
+            <div class="matching-grid">
+                ${cards.map(card => `
+                    <div class="card" data-card-id="${card.cardId}" data-pair-id="${card.id}" onclick="flipCard(${card.cardId}, ${card.id})">
+                        <div class="card-inner">
+                            <div class="card-front">❓</div>
+                            <div class="card-back">
+                                <div class="card-emoji">${card.image}</div>
+                                <div class="card-name">${card.name}</div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="game-buttons">
+                <button onclick="showModal('games')" class="btn btn-secondary">← กลับไปเมนูเกมส์</button>
+            </div>
+        </div>
+    `;
+    
+    modalContent.innerHTML = gameHTML;
+    modal.style.display = 'block';
+    
+    // รีเซ็ตเกมส์
+    cultureMatchingGame.currentScore = 0;
+    cultureMatchingGame.flippedCards = [];
+    cultureMatchingGame.matchedPairs = [];
+    updateGameScore();
+}
+
+// ฟังก์ชันพลิกการ์ด
+function flipCard(cardId, pairId) {
+    const card = document.querySelector(`[data-card-id="${cardId}"]`);
+    if (!card || card.classList.contains('flipped') || card.classList.contains('matched')) {
+        return;
+    }
+    
+    card.classList.add('flipped');
+    cultureMatchingGame.flippedCards.push({ cardId, pairId, element: card });
+    
+    if (cultureMatchingGame.flippedCards.length === 2) {
+        setTimeout(checkMatch, 500);
+    }
+}
+
+// ฟังก์ชันตรวจสอบการจับคู่
+function checkMatch() {
+    const [card1, card2] = cultureMatchingGame.flippedCards;
+    
+    if (card1.pairId === card2.pairId) {
+        // จับคู่สำเร็จ
+        card1.element.classList.add('matched');
+        card2.element.classList.add('matched');
+        cultureMatchingGame.matchedPairs.push(card1.pairId);
+        cultureMatchingGame.currentScore++;
+        updateGameScore();
+        
+        if (cultureMatchingGame.currentScore === cultureMatchingGame.totalPairs) {
+            setTimeout(() => {
+                alert('🎉 ยินดีด้วย! คุณจับคู่สำเร็จทั้งหมด!');
+            }, 300);
+        }
+    } else {
+        // จับคู่ไม่สำเร็จ
+        card1.element.classList.remove('flipped');
+        card2.element.classList.remove('flipped');
+    }
+    
+    cultureMatchingGame.flippedCards = [];
+}
+
+// ฟังก์ชันอัปเดตคะแนนเกมส์
+function updateGameScore() {
+    const scoreElement = document.getElementById('gameScore');
+    if (scoreElement) {
+        scoreElement.textContent = cultureMatchingGame.currentScore;
+    }
+}
+
+// ฟังก์ชันรีเซ็ตเกมส์จับคู่
+function resetMatchingGame() {
+    showMatchingGame();
+}
+
+// ฟังก์ชันแสดง Quiz ลพบุรี
+function showLopburiQuiz() {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+    
+    const currentQ = lopburiQuiz.questions[lopburiQuiz.currentQuestion];
+    
+    let quizHTML = `
+        <div class="quiz-section">
+            <h3>🧠 Quiz เกี่ยวกับลพบุรี</h3>
+            <div class="quiz-info">
+                <span>คำถาม: ${lopburiQuiz.currentQuestion + 1}/${lopburiQuiz.questions.length}</span>
+                <span>คะแนน: ${lopburiQuiz.score}</span>
+            </div>
+            <div class="question-container">
+                <h4>${currentQ.question}</h4>
+                <div class="options">
+                    ${currentQ.options.map((option, index) => `
+                        <button onclick="selectAnswer(${index})" class="option-btn">
+                            ${String.fromCharCode(65 + index)}. ${option}
+                        </button>
+                    `).join('')}
+                </div>
+            </div>
+            <div class="quiz-buttons">
+                <button onclick="showModal('games')" class="btn btn-secondary">← กลับไปเมนูเกมส์</button>
+            </div>
+        </div>
+    `;
+    
+    modalContent.innerHTML = quizHTML;
+    modal.style.display = 'block';
+}
+
+// ฟังก์ชันเลือกคำตอบ
+function selectAnswer(selectedIndex) {
+    const currentQ = lopburiQuiz.questions[lopburiQuiz.currentQuestion];
+    const optionBtns = document.querySelectorAll('.option-btn');
+    
+    // ปิดการคลิกปุ่ม
+    optionBtns.forEach(btn => btn.disabled = true);
+    
+    if (selectedIndex === currentQ.correct) {
+        optionBtns[selectedIndex].classList.add('correct');
+        lopburiQuiz.score++;
+    } else {
+        optionBtns[selectedIndex].classList.add('incorrect');
+        optionBtns[currentQ.correct].classList.add('correct');
+    }
+    
+    setTimeout(() => {
+        lopburiQuiz.currentQuestion++;
+        
+        if (lopburiQuiz.currentQuestion < lopburiQuiz.questions.length) {
+            showLopburiQuiz();
+        } else {
+            showQuizResult();
+        }
+    }, 2000);
+}
+
+// ฟังก์ชันแสดงผลลัพธ์ Quiz
+function showQuizResult() {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+    
+    const percentage = Math.round((lopburiQuiz.score / lopburiQuiz.questions.length) * 100);
+    let message = '';
+    
+    if (percentage >= 80) {
+        message = '🎉 ยอดเยี่ยม! คุณรู้จักลพบุรีดีมาก!';
+    } else if (percentage >= 60) {
+        message = '👍 ดีมาก! คุณรู้จักลพบุรีค่อนข้างดี';
+    } else {
+        message = '📚 ยังมีอะไรให้เรียนรู้เพิ่มเติมเกี่ยวกับลพบุรีอีกมาก';
+    }
+    
+    let resultHTML = `
+        <div class="quiz-result">
+            <h3>🏆 ผลลัพธ์ Quiz</h3>
+            <div class="result-info">
+                <h4>${message}</h4>
+                <p>คะแนน: ${lopburiQuiz.score}/${lopburiQuiz.questions.length} (${percentage}%)</p>
+            </div>
+            <div class="result-buttons">
+                <button onclick="resetQuiz()" class="btn btn-primary">🔄 เล่นใหม่</button>
+                <button onclick="showModal('games')" class="btn btn-secondary">← กลับไปเมนูเกมส์</button>
+            </div>
+        </div>
+    `;
+    
+    modalContent.innerHTML = resultHTML;
+    modal.style.display = 'block';
+}
+
+// ฟังก์ชันรีเซ็ต Quiz
+function resetQuiz() {
+    lopburiQuiz.currentQuestion = 0;
+    lopburiQuiz.score = 0;
+    showLopburiQuiz();
+}
+
+// ฟังก์ชันแสดงเมนูเกมส์
+function showGamesMenu() {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+    
+    let gamesHTML = `
+        <div class="games-menu">
+            <h3>🎮 เกมส์และกิจกรรม</h3>
+            <div class="games-grid">
+                <div class="game-card" onclick="showMatchingGame()">
+                    <div class="game-icon">🎯</div>
+                    <h4>เกมส์จับคู่วัฒนธรรม</h4>
+                    <p>จับคู่วัฒนธรรมลพบุรีให้ถูกต้อง</p>
+                </div>
+                <div class="game-card" onclick="showLopburiQuiz()">
+                    <div class="game-icon">🧠</div>
+                    <h4>Quiz ลพบุรี</h4>
+                    <p>ทดสอบความรู้เกี่ยวกับลพบุรี</p>
+                </div>
+            </div>
+            <div class="games-buttons">
+                <button onclick="closeModelModal()" class="btn btn-secondary">← กลับไปหน้าหลัก</button>
+            </div>
+        </div>
+    `;
+    
+    modalContent.innerHTML = gamesHTML;
+    modal.style.display = 'block';
+}
+
+// ฟังก์ชันแสดง Modal ทั่วไป
+function showModal(itemKey) {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+    
+    // ตรวจสอบว่าเป็นเกมส์หรือไม่
+    if (itemKey === 'games') {
+        showGamesMenu();
+        return;
+    }
+    
+    const item = itemData[itemKey];
+    
+    let modalHTML = `
+        <div class="modal-header">
+            <h2>${item.title}</h2>
+            <button onclick="closeModal()" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>${item.description}</p>
+            <div class="modal-buttons">
+                <button onclick="downloadModel('${itemKey}')" class="btn btn-primary">
+                    📥 ดาวน์โหลด 3D Model
+                </button>
+                <button onclick="show360View('${itemKey}')" class="btn btn-secondary">
+                    🌍 ดู 360° View
+                </button>
+                <button onclick="showRelatedCulture('${itemKey}')" class="btn btn-culture">
+                    📚 วัฒนธรรมที่เกี่ยวข้อง
+                </button>
+            </div>
+        </div>
+    `;
+    
+    modalContent.innerHTML = modalHTML;
+    modal.style.display = 'block';
+}
+
+// ฟังก์ชันปิด Modal
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+} 
