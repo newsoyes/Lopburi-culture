@@ -1116,7 +1116,7 @@ function showGamesMenu() {
                 </div>
             </div>
             <div class="games-buttons">
-                <button onclick="closeModelModal()" class="btn btn-secondary">← กลับไปหน้าหลัก</button>
+                <button onclick="closeModal()" class="btn btn-secondary">← กลับไปหน้าหลัก</button>
             </div>
         </div>
     `;
