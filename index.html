@@ -26,6 +26,7 @@
                 <button onclick="showModal('games')" class="cyber-btn games-btn">
                     🎮 เกมส์และกิจกรรม
                 </button>
+                <button id="news-toggle-btn" class="cyber-btn news-btn" type="button">📰 ข่าวสาร</button>
             </div>
         </div>
     </header>
@@ -138,20 +139,23 @@
     </div>
 
     <div id="main-content">
-        <div id="monkey-area"></div>
+        <!-- ลบ #monkey-area ออก -->
     </div>
-    <aside id="news-sidebar">
-        <h2>ข่าวสาร</h2>
-        <ul id="news-list">
-            <!-- ข่าวสารจะถูกเพิ่มที่นี่ -->
-        </ul>
-    </aside>
     <div id="chat-container">
         <div id="chat-messages"></div>
         <form id="chat-form">
             <input type="text" id="chat-input" placeholder="พิมพ์ข้อความ..." autocomplete="off" />
             <button type="submit">ส่ง</button>
         </form>
+    </div>
+
+    <!-- เพิ่ม overlay ข่าวสาร -->
+    <div id="news-sidebar" class="news-sidebar-overlay">
+        <div class="news-sidebar-header">
+            <span>ข่าวสาร</span>
+            <button id="news-close-btn" class="close-btn">✕</button>
+        </div>
+        <ul id="news-list"></ul>
     </div>
 
     <!-- Firebase App (v9+) -->

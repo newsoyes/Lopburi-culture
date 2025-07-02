@@ -1169,20 +1169,17 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-// ====== MONKEY PLAYGROUND (ปรับปรุงกระโดด) ======
-const monkeyArea = document.getElementById('monkey-area');
+// ====== MONKEY GLOBAL ======
 let monkeys = [];
-
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 function createMonkey(x, y) {
   const monkey = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   monkey.setAttribute('width', 60);
   monkey.setAttribute('height', 60);
   monkey.setAttribute('viewBox', '0 0 60 60');
-  monkey.style.position = 'absolute';
+  monkey.classList.add('monkey-global');
   monkey.style.left = x + 'px';
   monkey.style.top = y + 'px';
   monkey.style.cursor = 'pointer';
@@ -1206,8 +1203,7 @@ function createMonkey(x, y) {
     e.stopPropagation();
     spawnMonkey();
   });
-  monkeyArea.appendChild(monkey);
-  // เพิ่ม state สำหรับกระโดด
+  document.body.appendChild(monkey);
   monkey._jump = {
     vx: randomInt(-3, 3) || 2,
     vy: -randomInt(8, 16),
@@ -1216,45 +1212,40 @@ function createMonkey(x, y) {
   };
   return monkey;
 }
-
 function moveMonkey(monkey) {
-  const areaRect = monkeyArea.getBoundingClientRect();
   let x = parseFloat(monkey.style.left);
   let y = parseFloat(monkey.style.top);
   let st = monkey._jump;
-  // กระโดด
+  const w = window.innerWidth;
+  const h = window.innerHeight;
   if (!st.ground) {
     st.vy += st.gravity;
     x += st.vx;
     y += st.vy;
-    // ชนขอบล่าง
-    if (y > areaRect.height - 60) {
-      y = areaRect.height - 60;
+    if (y > h - 60) {
+      y = h - 60;
       st.vy = -randomInt(8, 16);
       st.vx = randomInt(-3, 3) || 2;
     }
-    // ชนขอบซ้าย/ขวา
     if (x < 0) { x = 0; st.vx *= -1; }
-    if (x > areaRect.width - 60) { x = areaRect.width - 60; st.vx *= -1; }
+    if (x > w - 60) { x = w - 60; st.vx *= -1; }
     monkey.style.left = x + 'px';
     monkey.style.top = y + 'px';
   }
 }
-
 function animateMonkeys() {
   monkeys.forEach(monkey => moveMonkey(monkey));
   requestAnimationFrame(animateMonkeys);
 }
-
 function spawnMonkey() {
-  const areaRect = monkeyArea.getBoundingClientRect();
-  const x = randomInt(0, Math.max(0, areaRect.width - 60));
-  const y = areaRect.height - 60;
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  const x = randomInt(0, Math.max(0, w - 60));
+  const y = h - 60;
   const monkey = createMonkey(x, y);
   monkeys.push(monkey);
 }
-
-monkeyArea.addEventListener('click', spawnMonkey);
+document.body.addEventListener('click', spawnMonkey);
 window.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     spawnMonkey();
@@ -1262,41 +1253,15 @@ window.addEventListener('DOMContentLoaded', () => {
   }, 500);
 });
 
-// ====== REALTIME CHAT (Firebase ปรับปรุง) ======
-// เพิ่มช่องกรอกชื่อผู้ส่ง
-if (!document.getElementById('chat-name')) {
-  const nameInput = document.createElement('input');
-  nameInput.type = 'text';
-  nameInput.id = 'chat-name';
-  nameInput.placeholder = 'ชื่อผู้ส่ง';
-  nameInput.maxLength = 20;
-  nameInput.style.marginRight = '8px';
-  const chatForm = document.getElementById('chat-form');
-  chatForm.insertBefore(nameInput, chatForm.firstChild);
-}
-
-// ปรับปรุงการแสดงข้อความและส่งข้อความ
-function addChatMessage(msg) {
-  const div = document.createElement('div');
-  div.className = 'chat-message';
-  div.innerHTML = `<b>${msg.name ? msg.name : 'ไม่ระบุ'}:</b> ${msg.text}`;
-  chatMessages.appendChild(div);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-
-chatRef.limitToLast(50).on('child_added', (snapshot) => {
-  const msg = snapshot.val();
-  addChatMessage(msg);
-});
-
-chatForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const text = chatInput.value.trim();
-  const name = document.getElementById('chat-name').value.trim() || 'ไม่ระบุ';
-  if (text) {
-    const msg = { text, name };
-    chatRef.push(msg);
-    addChatMessage(msg); // แสดงทันที
-    chatInput.value = '';
+// ข่าวสาร overlay toggle
+window.addEventListener('DOMContentLoaded', () => {
+  const newsSidebar = document.getElementById('news-sidebar');
+  const newsBtn = document.getElementById('news-toggle-btn');
+  const newsClose = document.getElementById('news-close-btn');
+  if (newsBtn && newsSidebar) {
+    newsBtn.onclick = () => newsSidebar.classList.add('open');
+  }
+  if (newsClose && newsSidebar) {
+    newsClose.onclick = () => newsSidebar.classList.remove('open');
   }
 }); 
