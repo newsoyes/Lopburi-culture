@@ -1314,4 +1314,58 @@ chatForm.addEventListener('submit', (e) => {
     chatRef.push(msg);
     chatInput.value = '';
   }
-}); 
+});
+
+// ====== ข่าวสารลพบุรี (ตัวอย่าง) ======
+const newsData = [
+  {
+    title: "ลิงลพบุรีบุกตลาดสด!",
+    image: "https://www.matichon.co.th/wp-content/uploads/2023/03/monkey-lopburi.jpg",
+    url: "https://www.matichon.co.th/region/news_3823456"
+  },
+  {
+    title: "งานเลี้ยงโต๊ะจีนลิงลพบุรีสุดคึกคัก",
+    image: "https://www.thairath.co.th/media/dFQROr7oWzulq5Fa5y1Qp1v1QnQwQ9ZlQ2ZlQ2ZlQ2ZlQ2ZlQ2ZlQ2.jpg",
+    url: "https://www.thairath.co.th/news/local/central/2598762"
+  },
+  {
+    title: "เที่ยวปรางค์สามยอด ลพบุรี เมืองลิง",
+    image: "https://www.paiduaykan.com/travel/wp-content/uploads/2020/07/1-DSC_0010-1.jpg",
+    url: "https://www.paiduaykan.com/travel/%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B9%8C%E0%B8%AA%E0%B8%B2%E0%B8%A1%E0%B8%A2%E0%B8%AD%E0%B8%94.html"
+  },
+  {
+    title: "เขาวงพระจันทร์ ลพบุรี เปิดให้ขึ้นเขาแล้ว!",
+    image: "https://www.checkinchill.com/wp-content/uploads/2020/01/kaowongprajun-1.jpg",
+    url: "https://www.checkinchill.com/%E0%B9%80%E0%B8%82%E0%B8%B2%E0%B8%A7%E0%B8%87%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B9%8C/"
+  },
+  {
+    title: "ลพบุรีจัดงานประเพณีสงกรานต์สุดยิ่งใหญ่",
+    image: "https://www.lopburitravel.com/wp-content/uploads/2019/04/songkran-lopburi.jpg",
+    url: "https://www.lopburitravel.com/songkran-lopburi/"
+  },
+  {
+    title: "ไข่เค็มลพบุรี ของดีขึ้นชื่อ",
+    image: "https://www.sentangsedtee.com/wp-content/uploads/2018/07/egg-lopburi.jpg",
+    url: "https://www.sentangsedtee.com/food-recipes/article_88888"
+  },
+  {
+    title: "เขื่อนป่าสักชลสิทธิ์ แหล่งท่องเที่ยวสำคัญ",
+    image: "https://www.paiduaykan.com/travel/wp-content/uploads/2019/07/1-DSC_0001-1.jpg",
+    url: "https://www.paiduaykan.com/travel/%E0%B9%80%E0%B8%82%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%9B%E0%B9%88%E0%B8%B2%E0%B8%AA%E0%B8%B1%E0%B8%81.html"
+  }
+];
+
+function renderNewsList() {
+  const newsList = document.getElementById('news-list');
+  if (!newsList) return;
+  newsList.innerHTML = newsData.map(news => `
+    <li class="news-item">
+      <a href="${news.url}" target="_blank" rel="noopener" class="news-link">
+        <img src="${news.image}" alt="${news.title}" class="news-thumb" />
+        <span class="news-title">${news.title}</span>
+      </a>
+    </li>
+  `).join('');
+}
+
+window.addEventListener('DOMContentLoaded', renderNewsList); 
