@@ -1253,15 +1253,20 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ข่าวสาร overlay toggle (slide-in)
+// ข่าวสาร overlay toggle (slide-in, toggle)
 window.addEventListener('DOMContentLoaded', () => {
   const newsSidebar = document.getElementById('news-sidebar');
   const newsBtn = document.getElementById('news-toggle-btn');
   const newsClose = document.getElementById('news-close-btn');
   if (newsBtn && newsSidebar) {
     newsBtn.onclick = () => {
-      newsSidebar.style.display = 'flex';
-      setTimeout(() => newsSidebar.classList.add('open'), 10);
+      if (newsSidebar.classList.contains('open')) {
+        newsSidebar.classList.remove('open');
+        setTimeout(() => newsSidebar.style.display = 'none', 400);
+      } else {
+        newsSidebar.style.display = 'flex';
+        setTimeout(() => newsSidebar.classList.add('open'), 10);
+      }
     };
   }
   if (newsClose && newsSidebar) {

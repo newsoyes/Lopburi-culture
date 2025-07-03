@@ -1269,4 +1269,13 @@ body {
 #chat-name:invalid {
     border-color: #ff6b6b;
     box-shadow: 0 0 8px #ff6b6b;
+}
+
+.news-btn-fixed {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 2200;
+    margin: 0;
+    box-shadow: 0 0 16px #00fff7;
 } 
