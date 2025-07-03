@@ -1266,6 +1266,7 @@ window.addEventListener('DOMContentLoaded', () => {
       } else {
         newsSidebar.style.display = 'flex';
         setTimeout(() => newsSidebar.classList.add('open'), 10);
+        renderNewsList(); // เรียกทุกครั้งที่เปิด
       }
     };
   }
@@ -1357,7 +1358,10 @@ const newsData = [
 
 function renderNewsList() {
   const newsList = document.getElementById('news-list');
-  if (!newsList) return;
+  if (!newsList) {
+    setTimeout(renderNewsList, 100);
+    return;
+  }
   newsList.innerHTML = newsData.map(news => `
     <li class="news-item">
       <a href="${news.url}" target="_blank" rel="noopener" class="news-link">
@@ -1368,7 +1372,7 @@ function renderNewsList() {
   `).join('');
 }
 
-window.addEventListener('DOMContentLoaded', renderNewsList); 
+window.addEventListener('DOMContentLoaded', renderNewsList);
 
 // ====== Firebase Config & ChatRef ======
 const firebaseConfig = {
