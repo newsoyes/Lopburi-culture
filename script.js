@@ -1369,3 +1369,18 @@ function renderNewsList() {
 }
 
 window.addEventListener('DOMContentLoaded', renderNewsList); 
+
+// ====== Firebase Config & ChatRef ======
+const firebaseConfig = {
+  apiKey: "AIzaSyAnlWTJKOnU6iIUx1KZd28N1jx0bPnKK_s",
+  authDomain: "cultureoflopburi.firebaseapp.com",
+  databaseURL: "https://cultureoflopburi-default-rtdb.firebaseio.com",
+  projectId: "cultureoflopburi",
+  storageBucket: "cultureoflopburi.appspot.com",
+  messagingSenderId: "1012182451991",
+  appId: "1:1012182451991:web:d2ce5abe68cddb42779952",
+  measurementId: "G-R5684EK0Y0"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const chatRef = db.ref('chat-messages');
