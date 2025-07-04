@@ -1378,32 +1378,6 @@ function renderNewsList() {
   console.log('[ข่าวสาร] renderNewsList called, news count:', newsData.length);
 }
 
-// เรียกทุกครั้งที่เปิดแถบข่าวสาร
-window.addEventListener('DOMContentLoaded', () => {
-  renderNewsList();
-  const newsSidebar = document.getElementById('news-sidebar');
-  const newsBtn = document.getElementById('news-toggle-btn');
-  const newsClose = document.getElementById('news-close-btn');
-  if (newsBtn && newsSidebar) {
-    newsBtn.onclick = () => {
-      if (newsSidebar.classList.contains('open')) {
-        newsSidebar.classList.remove('open');
-        setTimeout(() => newsSidebar.style.display = 'none', 400);
-      } else {
-        newsSidebar.style.display = 'flex';
-        setTimeout(() => newsSidebar.classList.add('open'), 10);
-        renderNewsList();
-      }
-    };
-  }
-  if (newsClose && newsSidebar) {
-    newsClose.onclick = () => {
-      newsSidebar.classList.remove('open');
-      setTimeout(() => newsSidebar.style.display = 'none', 400);
-    };
-  }
-});
-
 // ====== Firebase Config & ChatRef ======
 const firebaseConfig = {
   apiKey: "AIzaSyAnlWTJKOnU6iIUx1KZd28N1jx0bPnKK_s",
