@@ -1359,7 +1359,12 @@ const newsData = [
 function renderNewsList() {
   const newsList = document.getElementById('news-list');
   if (!newsList) {
+    console.log('[ข่าวสาร] ไม่พบ #news-list ใน DOM');
     setTimeout(renderNewsList, 100);
+    return;
+  }
+  if (!newsData || newsData.length === 0) {
+    newsList.innerHTML = '<li>ไม่พบข่าวสาร</li>';
     return;
   }
   newsList.innerHTML = newsData.map(news => `
@@ -1370,9 +1375,34 @@ function renderNewsList() {
       </a>
     </li>
   `).join('');
+  console.log('[ข่าวสาร] renderNewsList called, news count:', newsData.length);
 }
 
-window.addEventListener('DOMContentLoaded', renderNewsList);
+// เรียกทุกครั้งที่เปิดแถบข่าวสาร
+window.addEventListener('DOMContentLoaded', () => {
+  renderNewsList();
+  const newsSidebar = document.getElementById('news-sidebar');
+  const newsBtn = document.getElementById('news-toggle-btn');
+  const newsClose = document.getElementById('news-close-btn');
+  if (newsBtn && newsSidebar) {
+    newsBtn.onclick = () => {
+      if (newsSidebar.classList.contains('open')) {
+        newsSidebar.classList.remove('open');
+        setTimeout(() => newsSidebar.style.display = 'none', 400);
+      } else {
+        newsSidebar.style.display = 'flex';
+        setTimeout(() => newsSidebar.classList.add('open'), 10);
+        renderNewsList();
+      }
+    };
+  }
+  if (newsClose && newsSidebar) {
+    newsClose.onclick = () => {
+      newsSidebar.classList.remove('open');
+      setTimeout(() => newsSidebar.style.display = 'none', 400);
+    };
+  }
+});
 
 // ====== Firebase Config & ChatRef ======
 const firebaseConfig = {
