@@ -1278,44 +1278,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// ====== REALTIME CHAT (required name, sync) ======
-const chatForm = document.getElementById('chat-form');
-const chatInput = document.getElementById('chat-input');
-const chatMessages = document.getElementById('chat-messages');
-const chatName = document.getElementById('chat-name');
 
-function addChatMessage(msg) {
-  const div = document.createElement('div');
-  div.className = 'chat-message';
-  div.innerHTML = `<b>${msg.name}:</b> ${msg.text}`;
-  chatMessages.appendChild(div);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-
-chatRef.off(); // reset listener
-chatRef.limitToLast(50).on('child_added', (snapshot) => {
-  const msg = snapshot.val();
-  addChatMessage(msg);
-});
-
-chatForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const text = chatInput.value.trim();
-  const name = chatName.value.trim();
-  if (!name) {
-    chatName.focus();
-    chatName.setCustomValidity('กรุณากรอกชื่อผู้ส่ง');
-    chatName.reportValidity();
-    return;
-  } else {
-    chatName.setCustomValidity('');
-  }
-  if (text) {
-    const msg = { text, name };
-    chatRef.push(msg);
-    chatInput.value = '';
-  }
-});
 
 // ====== ข่าวสารลพบุรี (newsData & renderNewsList) ======
 const newsData = [
@@ -1376,17 +1339,3 @@ function renderNewsList() {
   `).join('');
 }
 
-// ====== Firebase Config & ChatRef ======
-const firebaseConfig = {
-  apiKey: "AIzaSyAnlWTJKOnU6iIUx1KZd28N1jx0bPnKK_s",
-  authDomain: "cultureoflopburi.firebaseapp.com",
-  databaseURL: "https://cultureoflopburi-default-rtdb.firebaseio.com",
-  projectId: "cultureoflopburi",
-  storageBucket: "cultureoflopburi.appspot.com",
-  messagingSenderId: "1012182451991",
-  appId: "1:1012182451991:web:d2ce5abe68cddb42779952",
-  measurementId: "G-R5684EK0Y0"
-};
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-const chatRef = db.ref('chat-messages');

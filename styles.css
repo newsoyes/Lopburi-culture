@@ -1028,83 +1028,11 @@ body {
     color: #fff;
 }
 
-/* กล่องแชท (ธีม cyberpunk) */
-#chat-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: calc(100vw - 300px);
-    max-width: 800px;
-    background: linear-gradient(135deg, #181c2f 80%, #00fff7 100%);
-    border-top: 3px solid #00fff7;
-    box-shadow: 0 -2px 16px #00fff7a0;
-    padding: 10px 10px 5px 10px;
-    z-index: 1001;
-    display: flex;
-    flex-direction: column;
-    margin-right: 300px;
-    color: #fff;
-    font-family: 'Orbitron', 'Rajdhani', sans-serif;
-}
-#chat-messages {
-    height: 120px;
-    overflow-y: auto;
-    margin-bottom: 8px;
-    font-size: 1em;
-    background: rgba(0,255,247,0.08);
-    border-radius: 8px;
-    padding: 8px 10px;
-    box-shadow: 0 1px 4px #00fff733;
-}
-#chat-form {
-    display: flex;
-    gap: 8px;
-}
-#chat-input, #chat-name {
-    flex: 1;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #00fff7;
-    background: #101426;
-    color: #fff;
-    font-family: inherit;
-    margin-right: 0;
-}
-#chat-name {
-    max-width: 120px;
-    flex: none;
-}
-#chat-form button {
-    background: #00fff7;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 16px;
-    color: #181c2f;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s;
-    font-family: inherit;
-    box-shadow: 0 0 8px #00fff7;
-}
-#chat-form button:hover {
-    background: #00bfae;
-}
 
-.chat-message {
-    margin-bottom: 4px;
-    padding: 2px 0;
-    word-break: break-word;
-    font-size: 1em;
-    text-shadow: 0 0 4px #00fff7cc;
-}
 
 @media (max-width: 900px) {
     #news-sidebar {
         display: none;
-    }
-    #chat-container {
-        width: 100vw;
-        margin-right: 0;
     }
     #monkey-area {
         margin-right: 0;
@@ -1207,18 +1135,7 @@ body {
     pointer-events: none;
 }
 
-/* กล่องแชทกลางล่าง */
-#chat-container {
-    position: fixed;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    margin: 0;
-    max-width: 600px;
-    width: 98vw;
-    border-radius: 18px 18px 0 0;
-    box-shadow: 0 -2px 16px #00fff7a0;
-}
+
 @media (max-width: 900px) {
     .news-sidebar-overlay {
         width: 100vw;
@@ -1226,10 +1143,6 @@ body {
     }
     .news-sidebar-overlay.open {
         right: 0;
-    }
-    #chat-container {
-        width: 100vw;
-        max-width: 100vw;
     }
 }
 
@@ -1256,20 +1169,7 @@ body {
     color: #fff;
 }
 
-/* ช่องชื่อผู้ส่งในแชท */
-#chat-name {
-    border: 2px solid #00fff7;
-    background: #101426;
-    color: #fff;
-    font-family: inherit;
-    font-weight: bold;
-    margin-right: 8px;
-    outline: none;
-}
-#chat-name:invalid {
-    border-color: #ff6b6b;
-    box-shadow: 0 0 8px #ff6b6b;
-}
+
 
 .news-btn-fixed {
     position: fixed;
