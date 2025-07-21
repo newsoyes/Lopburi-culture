@@ -1114,6 +1114,16 @@ function showGamesMenu() {
                     <h4>Quiz ลพบุรี</h4>
                     <p>ทดสอบความรู้เกี่ยวกับลพบุรี</p>
                 </div>
+                <div class="game-card" onclick="showNumberGuessGame()">
+                    <div class="game-icon">🔢</div>
+                    <h4>ทายเลขลับลพบุรี</h4>
+                    <p>สุ่มเลข 1-100 ทายให้ถูกใน 7 ครั้ง!</p>
+                </div>
+                <div class="game-card" onclick="showMouseMazeGame()">
+                    <div class="game-icon">🧩</div>
+                    <h4>เกมลากเมาส์ผ่านด่าน</h4>
+                    <p>ลากเมาส์จากจุดเริ่มต้นไปเส้นชัย ห้ามชนกำแพง!</p>
+                </div>
             </div>
             <div class="games-buttons">
                 <button onclick="closeModal()" class="btn btn-secondary">← กลับไปหน้าหลัก</button>
@@ -1393,5 +1403,245 @@ function renderNewsList() {
       showNewsPopup(newsData[idx]);
     };
   });
+}
+
+// ====== เกมใหม่: ทายเลขลับลพบุรี ======
+let numberGuessState = { answer: 0, tries: 0, maxTries: 7, history: [] };
+function showNumberGuessGame() {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+    numberGuessState.answer = Math.floor(Math.random() * 100) + 1;
+    numberGuessState.tries = 0;
+    numberGuessState.history = [];
+    renderNumberGuessGame();
+    modal.style.display = 'block';
+}
+function renderNumberGuessGame(message = '') {
+    const modalContent = document.getElementById('modal-content');
+    let historyHTML = '';
+    if (numberGuessState.history.length > 0) {
+        historyHTML = `<div style="margin:1rem 0 0.5rem 0; color:#00fff7; font-size:1.1em;">ทายที่ผ่านมา: ${numberGuessState.history.join(', ')}</div>`;
+    }
+    modalContent.innerHTML = `
+        <div class="game-section">
+            <h3>🔢 ทายเลขลับลพบุรี</h3>
+            <div style="margin-bottom:1.2rem; color:#fff;">ระบบสุ่มเลข 1-100 คุณมี 7 ครั้งในการทายให้ถูก!</div>
+            <form id="number-guess-form" autocomplete="off" style="margin-bottom:1.2rem;">
+                <input id="number-guess-input" type="number" min="1" max="100" required style="padding:0.7rem 1.2rem; border-radius:8px; border:2px solid #00fff7; font-size:1.2em; width:120px; text-align:center; margin-right:1rem;" placeholder="1-100" />
+                <button type="submit" class="btn btn-primary">ทาย!</button>
+            </form>
+            ${historyHTML}
+            <div id="number-guess-message" style="min-height:2.2em; color:#ff00ff; font-size:1.1em; margin-bottom:0.7rem;">${message}</div>
+            <div class="game-buttons">
+                <button onclick="showGamesMenu()" class="btn btn-secondary">← กลับเมนูเกมส์</button>
+            </div>
+        </div>
+    `;
+    // Animation
+    setTimeout(()=>{
+      document.querySelector('.game-section').style.animation = 'popup-bounce-in 0.5s cubic-bezier(.77,0,.18,1)';
+    },10);
+    // Form event
+    const form = document.getElementById('number-guess-form');
+    if (form) {
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            const input = document.getElementById('number-guess-input');
+            const guess = parseInt(input.value);
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                renderNumberGuessGame('กรุณากรอกเลข 1-100');
+                return;
+            }
+            numberGuessState.tries++;
+            numberGuessState.history.push(guess);
+            if (guess === numberGuessState.answer) {
+                renderNumberGuessGame(`<span style='color:#4caf50;'>🎉 ถูกต้อง! เลขลับคือ ${numberGuessState.answer} ทายเพียง ${numberGuessState.tries} ครั้ง</span>`);
+                form.querySelector('button').disabled = true;
+                input.disabled = true;
+            } else if (numberGuessState.tries >= numberGuessState.maxTries) {
+                renderNumberGuessGame(`<span style='color:#f44336;'>หมดสิทธิ์ทาย! เลขลับคือ ${numberGuessState.answer}</span>`);
+                form.querySelector('button').disabled = true;
+                input.disabled = true;
+            } else if (guess < numberGuessState.answer) {
+                renderNumberGuessGame('น้อยเกินไป');
+            } else {
+                renderNumberGuessGame('มากเกินไป');
+            }
+        };
+    }
+}
+
+// ====== เกมใหม่: Mouse Maze ======
+function showMouseMazeGame() {
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
+    modalContent.innerHTML = `
+      <div class="game-section">
+        <h3>🧩 เกมลากเมาส์ผ่านด่าน</h3>
+        <div style="margin-bottom:1.2rem; color:#fff;">ลากเมาส์จาก <b style='color:#00fff7;'>START</b> ไป <b style='color:#ff00ff;'>GOAL</b> ห้ามโดนกำแพง!</div>
+        <div id="maze-start-area" style="display:flex; justify-content:center; align-items:center; min-height:340px;">
+          <button id="maze-start-btn" class="btn btn-primary" style="font-size:1.3em;">เริ่มเกม</button>
+        </div>
+        <div class="game-buttons">
+          <button onclick="showGamesMenu()" class="btn btn-secondary">← กลับเมนูเกมส์</button>
+        </div>
+      </div>
+    `;
+    setTimeout(()=>{
+      const btn = document.getElementById('maze-start-btn');
+      if(btn) btn.onclick = ()=>renderMazeLevel(1);
+    }, 30);
+    modal.style.display = 'block';
+}
+
+function renderMazeLevel(level) {
+  const mazeArea = document.getElementById('maze-start-area');
+  let svgHTML = '', mazeWalls = [], start, goal, mazeW=340, mazeH=320;
+  if(level===1) {
+    // ด่าน 1: ง่าย
+    svgHTML = `
+      <svg id="maze-svg" width="340" height="320" style="background:#181c2f; border-radius:14px; box-shadow:0 0 16px #00fff7cc;">
+        <rect x="60" y="0" width="20" height="320" fill="#00fff7"/>
+        <rect x="260" y="0" width="20" height="320" fill="#00fff7"/>
+        <rect x="80" y="60" width="60" height="20" fill="#00fff7"/>
+        <rect x="200" y="120" width="60" height="20" fill="#00fff7"/>
+        <rect x="80" y="200" width="60" height="20" fill="#00fff7"/>
+        <circle id="maze-start" cx="170" cy="30" r="18" fill="#00fff7"/>
+        <text x="170" y="36" text-anchor="middle" font-size="1.1em" fill="#181c2f" font-weight="bold">START</text>
+        <rect id="maze-goal" x="150" y="290" width="40" height="20" rx="8" fill="#ff00ff"/>
+        <text x="170" y="305" text-anchor="middle" font-size="1.1em" fill="#fff" font-weight="bold">GOAL</text>
+      </svg>
+    `;
+    mazeWalls = [
+      {x:60,y:0,w:20,h:320}, {x:260,y:0,w:20,h:320},
+      {x:80,y:60,w:60,h:20}, {x:200,y:120,w:60,h:20}, {x:80,y:200,w:60,h:20}
+    ];
+    start = {x:170, y:30, r:18};
+    goal = {x:150, y:290, w:40, h:20};
+  } else if(level===2) {
+    // ด่าน 2: ทางแคบลง
+    svgHTML = `
+      <svg id="maze-svg" width="340" height="320" style="background:#181c2f; border-radius:14px; box-shadow:0 0 16px #00fff7cc;">
+        <rect x="90" y="0" width="10" height="320" fill="#00fff7"/>
+        <rect x="240" y="0" width="10" height="320" fill="#00fff7"/>
+        <rect x="100" y="80" width="60" height="14" fill="#00fff7"/>
+        <rect x="180" y="160" width="60" height="14" fill="#00fff7"/>
+        <rect x="100" y="220" width="60" height="14" fill="#00fff7"/>
+        <circle id="maze-start" cx="170" cy="30" r="15" fill="#00fff7"/>
+        <text x="170" y="36" text-anchor="middle" font-size="1.1em" fill="#181c2f" font-weight="bold">START</text>
+        <rect id="maze-goal" x="155" y="290" width="30" height="16" rx="7" fill="#ff00ff"/>
+        <text x="170" y="303" text-anchor="middle" font-size="1.1em" fill="#fff" font-weight="bold">GOAL</text>
+      </svg>
+    `;
+    mazeWalls = [
+      {x:90,y:0,w:10,h:320}, {x:240,y:0,w:10,h:320},
+      {x:100,y:80,w:60,h:14}, {x:180,y:160,w:60,h:14}, {x:100,y:220,w:60,h:14}
+    ];
+    start = {x:170, y:30, r:15};
+    goal = {x:155, y:290, w:30, h:16};
+  } else if(level===3) {
+    // ด่าน 3: ทางขดเคี้ยวและแคบมาก
+    mazeW=500; mazeH=420;
+    svgHTML = `
+      <svg id="maze-svg" width="500" height="420" style="background:#181c2f; border-radius:14px; box-shadow:0 0 16px #00fff7cc;">
+        <rect x="120" y="0" width="8" height="420" fill="#00fff7"/>
+        <rect x="370" y="0" width="8" height="420" fill="#00fff7"/>
+        <rect x="128" y="60" width="80" height="10" fill="#00fff7"/>
+        <rect x="292" y="120" width="86" height="10" fill="#00fff7"/>
+        <rect x="128" y="200" width="80" height="10" fill="#00fff7"/>
+        <rect x="292" y="260" width="86" height="10" fill="#00fff7"/>
+        <rect x="128" y="340" width="250" height="10" fill="#00fff7"/>
+        <rect x="128" y="400" width="250" height="10" fill="#00fff7"/>
+        <circle id="maze-start" cx="250" cy="30" r="13" fill="#00fff7"/>
+        <text x="250" y="36" text-anchor="middle" font-size="1.1em" fill="#181c2f" font-weight="bold">START</text>
+        <rect id="maze-goal" x="235" y="390" width="30" height="18" rx="7" fill="#ff00ff"/>
+        <text x="250" y="403" text-anchor="middle" font-size="1.1em" fill="#fff" font-weight="bold">GOAL</text>
+      </svg>
+    `;
+    mazeWalls = [
+      {x:120,y:0,w:8,h:420}, {x:370,y:0,w:8,h:420},
+      {x:128,y:60,w:80,h:10}, {x:292,y:120,w:86,h:10},
+      {x:128,y:200,w:80,h:10}, {x:292,y:260,w:86,h:10},
+      {x:128,y:340,w:250,h:10}, {x:128,y:400,w:250,h:10}
+    ];
+    start = {x:250, y:30, r:13};
+    goal = {x:235, y:390, w:30, h:18};
+  }
+  mazeArea.innerHTML = svgHTML;
+  setTimeout(()=>initMazeGame(level, mazeWalls, start, goal, mazeW, mazeH), 30);
+}
+
+function initMazeGame(level, mazeWalls, start, goal, mazeW, mazeH) {
+  const svg = document.getElementById('maze-svg');
+  let started = false, finished = false;
+  function showGhost() {
+    showMazePopup('👻', 'คุณโดนผีหลอก!','ลองใหม่อีกครั้ง', ()=>renderMazeLevel(level));
+  }
+  function showWin() {
+    if(level<3) {
+      showMazePopup('🏁', `ผ่านด่านที่ ${level}!`, 'ไปด่านถัดไป', ()=>renderMazeLevel(level+1));
+    } else {
+      showMazePopup('🏆', 'ยินดีด้วย! ผ่านด่านสุดท้ายแล้ว','สุดยอด! คุณคือแชมป์!', showGamesMenu);
+    }
+  }
+  function showMazePopup(emoji, title, msg, onClose) {
+    const old = document.getElementById('maze-popup-modal');
+    if (old) old.remove();
+    const modal = document.createElement('div');
+    modal.id = 'maze-popup-modal';
+    modal.className = 'news-popup-modal';
+    modal.innerHTML = `
+      <div class="news-popup-content">
+        <div style="font-size:3.5em;">${emoji}</div>
+        <div class="news-popup-title">${title}</div>
+        <div class="news-popup-desc">${msg}</div>
+        <button class="news-popup-close" id="maze-popup-close">&times;</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    setTimeout(()=>modal.classList.add('open'),10);
+    document.getElementById('maze-popup-close').onclick = ()=>{modal.remove(); if(onClose) onClose();};
+    modal.onclick = e => { if (e.target === modal) { modal.remove(); if(onClose) onClose(); } };
+    document.addEventListener('keydown', function escClose(e) {
+      if (e.key === 'Escape') { modal.remove(); if(onClose) onClose(); document.removeEventListener('keydown', escClose); }
+    });
+  }
+  svg.onmouseleave = () => { if (started && !finished) showGhost(); started = false; };
+  svg.onmousemove = e => {
+    if (!started) return;
+    const pt = svg.createSVGPoint();
+    pt.x = e.clientX; pt.y = e.clientY;
+    const ctm = svg.getScreenCTM();
+    const svgP = pt.matrixTransform(ctm.inverse());
+    // ตรวจชนกำแพง
+    for(const wall of mazeWalls) {
+      if(svgP.x>=wall.x && svgP.x<=wall.x+wall.w && svgP.y>=wall.y && svgP.y<=wall.y+wall.h) {
+        if (started && !finished) showGhost(); started = false; return;
+      }
+    }
+    // ตรวจเส้นชัย
+    if(svgP.x>=goal.x && svgP.x<=goal.x+goal.w && svgP.y>=goal.y && svgP.y<=goal.y+goal.h) {
+      if (started && !finished) { showWin(); finished = true; }
+    }
+  };
+  // เริ่มเกมเมื่อเข้า START (ไม่ต้องคลิก)
+  svg.onmousemove = e => {
+    const pt = svg.createSVGPoint();
+    pt.x = e.clientX; pt.y = e.clientY;
+    const ctm = svg.getScreenCTM();
+    const svgP = pt.matrixTransform(ctm.inverse());
+    if(!started && Math.hypot(svgP.x-start.x,svgP.y-start.y)<=start.r) { started = true; finished = false; return; }
+    if (!started) return;
+    // ตรวจชนกำแพง
+    for(const wall of mazeWalls) {
+      if(svgP.x>=wall.x && svgP.x<=wall.x+wall.w && svgP.y>=wall.y && svgP.y<=wall.y+wall.h) {
+        if (started && !finished) showGhost(); started = false; return;
+      }
+    }
+    // ตรวจเส้นชัย
+    if(svgP.x>=goal.x && svgP.x<=goal.x+goal.w && svgP.y>=goal.y && svgP.y<=goal.y+goal.h) {
+      if (started && !finished) { showWin(); finished = true; }
+    }
+  };
 }
 

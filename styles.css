@@ -300,7 +300,6 @@ body {
     background: var(--darker-bg);
     margin: 5% auto;
     padding: 0;
-    border: 2px solid var(--neon-cyan);
     border-radius: 15px;
     width: 90%;
     max-width: 1000px;
@@ -1319,7 +1318,8 @@ body {
 .games-menu, .game-section, .quiz-section {
   background: linear-gradient(135deg, #181c2f 80%, #00fff7 100%);
   border-radius: 18px;
-  box-shadow: 0 8px 48px #00fff7cc, 0 1.5px 0 #00fff7;
+  border: 2.5px solid #00fff7;
+  box-shadow: 0 0 32px #00fff7cc, 0 1.5px 0 #00fff7;
   padding: 2.5rem 2rem 2rem 2rem;
   max-width: 520px;
   width: 95vw;
