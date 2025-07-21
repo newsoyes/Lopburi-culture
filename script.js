@@ -1285,40 +1285,88 @@ const newsData = [
   {
     img: "1.jpg",
     title: "ลิงฝั่งธน ตีกับลิงฝั่งคลองเตย",
+    description: "ลิงสองฝูงใหญ่ปะทะกันกลางถนนลพบุรี สร้างความแตกตื่นให้กับชาวบ้านและนักท่องเที่ยว ไม่มีผู้ได้รับบาดเจ็บแต่การจราจรติดขัดชั่วคราว",
     link: "#"
   },
   {
     img: "2.jpg",
     title: "เด็กคลั่งคว้าปืนยิงลิงดับ4เจ็บสาหัส20",
+    description: "เหตุการณ์สะเทือนขวัญ เด็กนักเรียนคว้าปืนยิงลิงกลางตลาดลพบุรี ส่งผลให้ลิงเสียชีวิต 4 ตัว บาดเจ็บ 20 ตัว เจ้าหน้าที่เร่งสอบสวน",
     link: "#"
   },
   {
     img: "3.jpg",
     title: "จับถึงเตียง รวบนักผลิตยาเพื่อสังคม อ้างทำเพื่อช่วยหมอ",
+    description: "ตำรวจลพบุรีบุกจับผู้ต้องหาคาห้องนอน ผลิตยาเถื่อนอ้างช่วยเหลือแพทย์ในพื้นที่ห่างไกล พบของกลางจำนวนมาก",
     link: "#"
   },
   {
     img: "4.jpg",
     title: "ไหม้วอด บ้านร้อยล้านไหม้ พระอภัยโกรธหนัก",
+    description: "เกิดเหตุเพลิงไหม้บ้านเรือนไทยมูลค่ากว่าร้อยล้านบาทในลพบุรี คาดไฟฟ้าลัดวงจร ไม่มีผู้บาดเจ็บแต่ทรัพย์สินเสียหายหนัก",
     link: "#"
   },
   {
     img: "5.jpg",
     title: "ปาอึใส่ป้ายหาเสียงแล้วรวย ซวยแล้วมึง",
+    description: "ป้ายหาเสียงผู้สมัคร ส.อบจ. ถูกปาอึใส่กลางดึก ตำรวจเร่งติดตามผู้ก่อเหตุ สร้างเสียงวิจารณ์ในโลกออนไลน์",
     link: "#"
   },
   {
     img: "6.jpg",
     title: "รวบ4โจ๋ ธาม,ไอซ์,กล่อง, และเวฟ เจ้าของเว็ป Niga888",
+    description: "เจ้าหน้าที่ตำรวจลพบุรีจับกุมกลุ่มวัยรุ่นแอดมินเว็บพนันออนไลน์ชื่อดัง พร้อมของกลางและหลักฐานหลายรายการ",
     link: "#"
   },
   {
     img: "7.jpg",
     title: "กระสือก็มีหัวใจ ฮักเป็นคือกัน",
+    description: "เรื่องราวความรักสุดแปลกของกระสือในลพบุรี สร้างความฮือฮาในชุมชนและโซเชียลมีเดีย",
     link: "#"
   }
 ];
 
+// ====== NEWS POPUP MODAL ======
+function showNewsPopup(news) {
+  // ถ้ามี modal เดิมอยู่แล้วให้ลบทิ้งก่อน
+  const oldModal = document.getElementById('news-popup-modal');
+  if (oldModal) oldModal.remove();
+
+  // สร้าง modal
+  const modal = document.createElement('div');
+  modal.id = 'news-popup-modal';
+  modal.className = 'news-popup-modal';
+  modal.innerHTML = `
+    <div class="news-popup-content">
+      <button class="news-popup-close" id="news-popup-close">&times;</button>
+      <img src="${news.img}" alt="${news.title}" class="news-popup-img" />
+      <div class="news-popup-title">${news.title}</div>
+      <div class="news-popup-desc">${news.description || ''}</div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  // Animation
+  setTimeout(() => {
+    modal.classList.add('open');
+  }, 10);
+
+  // ปิด modal
+  function closeNewsPopup() {
+    modal.classList.remove('open');
+    setTimeout(() => modal.remove(), 350);
+  }
+  document.getElementById('news-popup-close').onclick = closeNewsPopup;
+  modal.onclick = e => { if (e.target === modal) closeNewsPopup(); };
+  document.addEventListener('keydown', function escClose(e) {
+    if (e.key === 'Escape') {
+      closeNewsPopup();
+      document.removeEventListener('keydown', escClose);
+    }
+  });
+}
+
+// ปรับ renderNewsList ให้เรียก showNewsPopup
 function renderNewsList() {
   const newsList = document.getElementById('news-list');
   if (!newsList) {
@@ -1329,13 +1377,21 @@ function renderNewsList() {
     newsList.innerHTML = '<li>ไม่มีข่าวสาร</li>';
     return;
   }
-  newsList.innerHTML = newsData.map(news => `
+  newsList.innerHTML = newsData.map((news, idx) => `
     <li class="news-item">
-      <a href="${news.link}" target="_blank" rel="noopener" class="news-link">
+      <a href="#" class="news-link" data-news-idx="${idx}">
         <img src="${news.img}" alt="${news.title}" class="news-thumb" />
         <span class="news-title">${news.title}</span>
       </a>
     </li>
   `).join('');
+  // เพิ่ม event listener
+  newsList.querySelectorAll('.news-link').forEach(link => {
+    link.onclick = e => {
+      e.preventDefault();
+      const idx = +link.getAttribute('data-news-idx');
+      showNewsPopup(newsData[idx]);
+    };
+  });
 }
 

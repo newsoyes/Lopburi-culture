@@ -1224,3 +1224,235 @@ body {
     .news-thumb { width: 44px; height: 44px; }
     .news-title { font-size: 0.98em; }
 } 
+
+/* ===== NEWS POPUP MODAL ===== */
+.news-popup-modal {
+  position: fixed;
+  z-index: 3000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(10,20,30,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(.77,0,.18,1);
+}
+.news-popup-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.news-popup-content {
+  background: linear-gradient(135deg, #181c2f 80%, #00fff7 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 48px #00fff7cc, 0 1.5px 0 #00fff7;
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 420px;
+  width: 95vw;
+  text-align: center;
+  position: relative;
+  animation: popup-bounce-in 0.5s cubic-bezier(.77,0,.18,1);
+}
+@keyframes popup-bounce-in {
+  0% { transform: scale(0.7) translateY(60px); opacity: 0; }
+  60% { transform: scale(1.05) translateY(-10px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.news-popup-img {
+  width: 100%;
+  max-width: 340px;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 18px #00fff7cc;
+  margin-bottom: 1.2rem;
+  animation: img-fade-in 0.7s cubic-bezier(.77,0,.18,1);
+}
+@keyframes img-fade-in {
+  0% { opacity: 0; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.news-popup-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #00fff7;
+  margin-bottom: 0.7rem;
+  text-shadow: 0 0 8px #00fff7cc;
+  letter-spacing: 1px;
+}
+.news-popup-desc {
+  color: #fff;
+  font-size: 1.05em;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 6px #00fff733;
+}
+.news-popup-close {
+  position: absolute;
+  top: 12px; right: 18px;
+  background: none;
+  border: none;
+  color: #00fff7;
+  font-size: 2.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+  z-index: 10;
+  text-shadow: 0 0 12px #00fff7cc;
+}
+.news-popup-close:hover {
+  color: #fff;
+  transform: scale(1.18) rotate(8deg);
+}
+@media (max-width: 600px) {
+  .news-popup-content {
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+    max-width: 98vw;
+  }
+  .news-popup-img {
+    max-width: 98vw;
+    max-height: 160px;
+  }
+} 
+
+/* ===== GAMES MODAL & GAME UI ปรับปรุงใหม่ ===== */
+.games-menu, .game-section, .quiz-section {
+  background: linear-gradient(135deg, #181c2f 80%, #00fff7 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 48px #00fff7cc, 0 1.5px 0 #00fff7;
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 520px;
+  width: 95vw;
+  margin: 0 auto;
+  animation: popup-bounce-in 0.5s cubic-bezier(.77,0,.18,1);
+}
+.games-menu h3, .game-section h3, .quiz-section h3 {
+  color: #00fff7;
+  font-size: 2.1rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 12px #00fff7cc;
+}
+.games-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 700px) {
+  .games-menu, .game-section, .quiz-section {
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+    max-width: 98vw;
+  }
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.game-card {
+  background: rgba(0,255,247,0.10);
+  border-radius: 15px;
+  padding: 2rem 1rem 1.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s, box-shadow 0.2s;
+  border: 2px solid #00fff7;
+  box-shadow: 0 2px 12px #00fff733;
+  position: relative;
+  overflow: hidden;
+  animation: gamecard-fade-in 0.7s cubic-bezier(.77,0,.18,1);
+}
+.game-card:hover {
+  background: #00fff7;
+  color: #181c2f;
+  box-shadow: 0 10px 30px #00fff7cc;
+  transform: translateY(-6px) scale(1.04) rotate(-2deg);
+  border-color: #ff00ff;
+}
+@keyframes gamecard-fade-in {
+  0% { opacity: 0; transform: scale(0.9) translateY(30px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.game-icon {
+  font-size: 2.7rem;
+  margin-bottom: 0.7rem;
+  filter: drop-shadow(0 0 8px #00fff7cc);
+  animation: float 2.5s ease-in-out infinite;
+}
+.game-card h4 {
+  color: #ff6b6b;
+  margin-bottom: 0.7rem;
+  font-size: 1.2rem;
+}
+.game-card p {
+  color: #fff;
+  font-size: 0.98rem;
+}
+.games-buttons, .game-buttons, .quiz-buttons, .result-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+.btn, .btn-primary, .btn-secondary, .btn-culture, .btn-360 {
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 0 16px #00fff7cc;
+  background: linear-gradient(90deg, #00fff7 60%, #ff00ff 100%);
+  color: #181c2f;
+  letter-spacing: 1px;
+}
+.btn-primary {
+  background: linear-gradient(90deg, #00fff7 60%, #ff00ff 100%);
+  color: #181c2f;
+}
+.btn-secondary {
+  background: linear-gradient(90deg, #ff6b6b 60%, #4ecdc4 100%);
+  color: #181c2f;
+}
+.btn-culture {
+  background: linear-gradient(90deg, #a8e6cf 60%, #dcedc1 100%);
+  color: #181c2f;
+}
+.btn-360 {
+  background: linear-gradient(90deg, #ff9a9e 60%, #fecfef 100%);
+  color: #181c2f;
+}
+.btn:hover, .btn-primary:hover, .btn-secondary:hover, .btn-culture:hover, .btn-360:hover {
+  transform: scale(1.07) translateY(-2px) rotate(-1deg);
+  box-shadow: 0 8px 32px #00fff7cc;
+  color: #fff;
+}
+.option-btn {
+  background: linear-gradient(90deg, #00fff7 60%, #ff00ff 100%);
+  color: #181c2f;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.05rem;
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 12px #00fff7cc;
+}
+.option-btn:hover {
+  background: linear-gradient(90deg, #ff00ff 60%, #00fff7 100%);
+  color: #fff;
+}
+.option-btn.correct {
+  background: linear-gradient(90deg, #4caf50 60%, #8bc34a 100%);
+  color: #fff;
+}
+.option-btn.incorrect {
+  background: linear-gradient(90deg, #f44336 60%, #e91e63 100%);
+  color: #fff;
+} 
