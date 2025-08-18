@@ -7,9 +7,9 @@ const itemData = {
             <div class="detail-section">
                 <h4>🐒 ลิงลพบุรี: สัญลักษณ์แห่งเมือง</h4>
                 <p>ลิงแสมในลพบุรีเป็นที่รู้จักไปทั่วโลก ด้วยจำนวนที่มากกว่า 3,000 ตัวที่อาศัยอยู่ในใจกลางเมือง โดยเฉพาะบริเวณโบราณสถานสำคัญ</p>
-                <img src="monkey/1.jpg" alt="ลิงลพบุรี" class="detail-img">
-                <img src="monkey/2.jpg" alt="สถานที่พบลิง" class="detail-img">
-                <img src="monkey/3.jpg" alt="งานเลี้ยงโต๊ะจีนลิง" class="detail-img">
+                <img src="monkey/1.jpg" alt="ลิงลพบุรี" class="detail-img" loading="lazy">
+                <img src="monkey/2.jpg" alt="สถานที่พบลิง" class="detail-img" loading="lazy">
+                <img src="monkey/3.jpg" alt="งานเลี้ยงโต๊ะจีนลิง" class="detail-img" loading="lazy">
             </div>
             <div class="detail-section">
                 <h4>📍 สถานที่พบลิง</h4>
@@ -39,9 +39,9 @@ const itemData = {
             <div class="detail-section">
                 <h4>🥚 ไข่เค็มลพบุรี: ของดีขึ้นชื่อ</h4>
                 <p>ไข่เค็มลพบุรีเป็นสินค้าขึ้นชื่อที่มีประวัติยาวนานกว่า 100 ปี ผลิตจากไข่เป็ดคุณภาพดีและดินสอพองธรรมชาติของลพบุรี</p>
-                <img src="egg/1.jpg" alt="ไข่เค็มลพบุรี" class="detail-img">
-                <img src="egg/2.jpg" alt="กรรมวิธีการผลิต" class="detail-img">
-                <img src="egg/3.jpg" alt="เมนูแนะนำ" class="detail-img">
+                <img src="egg/1.jpg" alt="ไข่เค็มลพบุรี" class="detail-img" loading="lazy">
+                <img src="egg/2.jpg" alt="กรรมวิธีการผลิต" class="detail-img" loading="lazy">
+                <img src="egg/3.jpg" alt="เมนูแนะนำ" class="detail-img" loading="lazy">
             </div>
             <div class="detail-section">
                 <h4>🔬 กรรมวิธีการผลิต</h4>
@@ -72,9 +72,9 @@ const itemData = {
             <div class="detail-section">
                 <h4>🏺 ดินสอพองลพบุรี: วัตถุดิบธรรมชาติ</h4>
                 <p>ดินสอพองลพบุรีเป็นดินขาวธรรมชาติที่มีคุณภาพดีที่สุดในประเทศไทย ใช้ในการทำไข่เค็มและประเพณีสงกรานต์</p>
-                <img src="pong/1.jpg" alt="ดินสอพองลพบุรี" class="detail-img">
-                <img src="pong/2.jpg" alt="คุณสมบัติพิเศษ" class="detail-img">
-                <img src="pong/3.jpg" alt="การใช้ในประเพณี" class="detail-img">
+                <img src="pong/1.jpg" alt="ดินสอพองลพบุรี" class="detail-img" loading="lazy">
+                <img src="pong/2.jpg" alt="คุณสมบัติพิเศษ" class="detail-img" loading="lazy">
+                <img src="pong/3.jpg" alt="การใช้ในประเพณี" class="detail-img" loading="lazy">
             </div>
             <div class="detail-section">
                 <h4>🌿 คุณสมบัติพิเศษ</h4>
@@ -105,9 +105,9 @@ const itemData = {
             <div class="detail-section">
                 <h4>🏛️ ปรางค์สามยอด: สัญลักษณ์แห่งลพบุรี</h4>
                 <p>ปรางค์สามยอดเป็นโบราณสถานสำคัญที่สร้างขึ้นในสมัยขอมแบบบายน มีลักษณะเป็นปรางค์ 3 องค์เชื่อมต่อกัน สูงประมาณ 20 เมตร</p>
-                <img src="sam/1.jpg" alt="ปรางค์สามยอด" class="detail-img">
-                <img src="sam/2.jpg" alt="สถาปัตยกรรม" class="detail-img">
-                <img src="sam/3.jpg" alt="ที่อยู่อาศัยของลิง" class="detail-img">
+                <img src="sam/1.jpg" alt="ปรางค์สามยอด" class="detail-img" loading="lazy">
+                <img src="sam/2.jpg" alt="สถาปัตยกรรม" class="detail-img" loading="lazy">
+                <img src="sam/3.jpg" alt="ที่อยู่อาศัยของลิง" class="detail-img" loading="lazy">
             </div>
             <div class="detail-section">
                 <h4>🏗️ สถาปัตยกรรม</h4>
@@ -138,9 +138,9 @@ const itemData = {
             <div class="detail-section">
                 <h4>👑 การแต่งกายในยุคพระนารายณ์</h4>
                 <p>ชุดแต่งกายโบราณในสมัยพระนารายณ์มหาราช แสดงถึงวัฒนธรรมการแต่งกายของชนชั้นสูงในสมัยอยุธยา มีความวิจิตรบรรจงและสะท้อนถึงฐานะทางสังคม</p>
-                <img src="thai/1.jpg" alt="การแต่งกายในยุคพระนารายณ์" class="detail-img">
-                <img src="thai/2.jpg" alt="ลักษณะชุดแต่งกาย" class="detail-img">
-                <img src="thai/3.jpg" alt="ประวัติศาสตร์" class="detail-img">
+                <img src="thai/1.jpg" alt="การแต่งกายในยุคพระนารายณ์" class="detail-img" loading="lazy">
+                <img src="thai/2.jpg" alt="ลักษณะชุดแต่งกาย" class="detail-img" loading="lazy">
+                <img src="thai/3.jpg" alt="ประวัติศาสตร์" class="detail-img" loading="lazy">
             </div>
             <div class="detail-section">
                 <h4>👘 ลักษณะชุดแต่งกาย</h4>
@@ -171,9 +171,9 @@ const itemData = {
             <div class="detail-section">
                 <h4>⛰️ เขาวงพระจันทร์: ภูเขาศักดิ์สิทธิ์</h4>
                 <p>เขาวงพระจันทร์เป็นภูเขาที่สูงที่สุดในจังหวัดลพบุรี มีความสูงประมาณ 650 เมตร เป็นที่ประดิษฐานรอยพระพุทธบาทที่ศักดิ์สิทธิ์</p>
-                <img src="wat/1.jpg" alt="เขาวงพระจันทร์" class="detail-img">
-                <img src="wat/2.jpg" alt="การเดินทาง" class="detail-img">
-                <img src="wat/3.jpg" alt="ความเชื่อและศักดิ์สิทธิ์" class="detail-img">
+                <img src="wat/1.jpg" alt="เขาวงพระจันทร์" class="detail-img" loading="lazy">
+                <img src="wat/2.jpg" alt="การเดินทาง" class="detail-img" loading="lazy">
+                <img src="wat/3.jpg" alt="ความเชื่อและศักดิ์สิทธิ์" class="detail-img" loading="lazy">
             </div>
             <div class="detail-section">
                 <h4>🛤️ การเดินทาง</h4>
@@ -214,6 +214,7 @@ let scene, camera, renderer, controls;
 let currentModel = null;
 let currentMixer = null;
 let currentModelType = null; // NEWSOYES - Track current model type for rotation control
+let lastFocusedElement = null; // Accessibility: remember focus
 
 // NEWSOYES
 document.addEventListener('DOMContentLoaded', function() {
@@ -280,6 +281,10 @@ function openModelModal(itemType) {
     modelDescription.innerHTML = descriptionContent;
     
     modal.style.display = 'block';
+    // focus trap start
+    lastFocusedElement = document.activeElement;
+    const closeBtn = document.querySelector('#modelModal .close');
+    if (closeBtn) closeBtn.focus();
     
     // NEWSOYES
     create3DModel(itemType, data);
@@ -341,6 +346,9 @@ function closeModelModal() {
     const errorMessage = document.querySelector('.error-message');
     if (errorMessage) {
         errorMessage.remove();
+    }
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
     }
 }
 
@@ -764,6 +772,9 @@ function showLoadingIndicator() {
     const container = document.getElementById('modelContainer');
     const loadingDiv = document.createElement('div');
     loadingDiv.id = 'loadingIndicator';
+    loadingDiv.setAttribute('role', 'status');
+    loadingDiv.setAttribute('aria-live', 'polite');
+    loadingDiv.setAttribute('aria-busy', 'true');
     loadingDiv.innerHTML = `
         <div class="loading-content">
             <div class="loading-spinner"></div>
@@ -1424,10 +1435,12 @@ window.addEventListener('DOMContentLoaded', () => {
       if (newsSidebar.classList.contains('open')) {
         newsSidebar.classList.remove('open');
         setTimeout(() => newsSidebar.style.display = 'none', 400);
+        newsBtn.setAttribute('aria-expanded', 'false');
       } else {
         newsSidebar.style.display = 'flex';
         setTimeout(() => newsSidebar.classList.add('open'), 10);
         renderNewsList(); // เรียกทุกครั้งที่เปิด
+        newsBtn.setAttribute('aria-expanded', 'true');
       }
     };
   }
@@ -1435,6 +1448,7 @@ window.addEventListener('DOMContentLoaded', () => {
     newsClose.onclick = () => {
       newsSidebar.classList.remove('open');
       setTimeout(() => newsSidebar.style.display = 'none', 400);
+      if (newsBtn) newsBtn.setAttribute('aria-expanded', 'false');
     };
   }
 });

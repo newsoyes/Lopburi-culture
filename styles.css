@@ -5,6 +5,28 @@
     box-sizing: border-box;
 }
 
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    position: fixed;
+    left: 16px;
+    top: 12px;
+    width: auto;
+    height: auto;
+    background: #00ffff;
+    color: #111;
+    padding: 8px 12px;
+    border-radius: 8px;
+    z-index: 3000;
+}
+
 :root {
     --neon-cyan: #00ffff;
     --neon-pink: #ff00ff;
@@ -22,6 +44,12 @@ body {
     color: #ffffff;
     overflow-x: hidden;
     position: relative;
+}
+
+/* Focus visible styles */
+a:focus-visible, button:focus-visible, .cyber-btn:focus-visible, .btn:focus-visible {
+    outline: 3px solid #00ffff;
+    outline-offset: 2px;
 }
 
 /* NEWSOYES*/
@@ -70,6 +98,15 @@ body {
 @keyframes scanlines {
     0% { transform: translateY(0); }
     100% { transform: translateY(4px); }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* NEWSOYES*/
@@ -371,6 +408,9 @@ body {
     scrollbar-color: var(--neon-cyan) var(--dark-bg);
 }
 
+/* role=status progress bar accessibility */
+#loadingIndicator[role="status"] .progress-bar { position: relative; }
+
 /* NEWSOYES - Custom scrollbar styling for webkit browsers */
 .modal-body::-webkit-scrollbar {
     width: 8px;
@@ -524,6 +564,12 @@ body {
     margin-bottom: 1rem;
     font-family: 'Orbitron', monospace;
     text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.loading-content p::after {
+    content: ' (กำลังโหลด)';
+    position: absolute;
+    left: -9999px; /* hidden visually but exposed to ATs via role=status container */
 }
 
 .loading-progress {

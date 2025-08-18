@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon-01.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="วัฒนธรรมลพบุรี - แคตตาล็อกดิจิทัลธีมไซเบอร์พังก์ พร้อมโมเดล 3D เกมส์ และ 360° View เกี่ยวกับลพบุรี">
+    <meta name="keywords" content="ลพบุรี, วัฒนธรรมลพบุรี, ปรางค์สามยอด, ลิงลพบุรี, ไข่เค็ม, ดินสอพอง, เขาวงพระจันทร์, 3D, Three.js, เกม, Culture of Lopburi">
+    <link rel="canonical" href="https://cultureoflopburi.life/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="วัฒนธรรมลพบุรี - Cyberpunk Catalog">
+    <meta property="og:description" content="สำรวจวัฒนธรรมลพบุรีผ่านโมเดล 3D เกมส์ และลิงก์ 360° View ในธีมไซเบอร์พังก์">
+    <meta property="og:url" content="https://cultureoflopburi.life/">
+    <meta property="og:image" content="https://cultureoflopburi.life/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="วัฒนธรรมลพบุรี - Cyberpunk Catalog">
+    <meta name="twitter:description" content="โมเดล 3D + เกมส์ + 360° View เกี่ยวกับลพบุรี">
+    <meta name="twitter:image" content="https://cultureoflopburi.life/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>วัฒนธรรมลพบุรี - Cyberpunk Catalog</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,11 +29,21 @@
           "@context": "https://schema.org",
           "@type": "Organization",
           "url": "https://cultureoflopburi.life/",
-          "logo": "https://cultureoflopburi.life//logo.png"
+          "logo": "https://cultureoflopburi.life/logo.png"
         }
         </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "วัฒนธรรมลพบุรี - Cyberpunk Catalog",
+          "url": "https://cultureoflopburi.life/",
+          "inLanguage": "th-TH"
+        }
+    </script>
 </head>
 <body>
+    <a href="#catalog-root" class="skip-link">ข้ามไปยังเนื้อหา</a>
     <div class="cyberpunk-bg">
         <div class="grid-overlay"></div>
         <div class="scanlines"></div>
@@ -33,17 +57,17 @@
             <p class="subtitle">Lopburi CULTURAL CATALOG</p>
             <div class="header-buttons">
                 <button onclick="showModal('games')" class="cyber-btn games-btn">🎮 เกมส์และกิจกรรม</button>
-                <button id="news-toggle-btn" class="cyber-btn news-btn news-btn-fixed" type="button">📰 ข่าวสาร</button>
+                <button id="news-toggle-btn" class="cyber-btn news-btn news-btn-fixed" type="button" aria-controls="news-sidebar" aria-expanded="false">📰 ข่าวสาร</button>
             </div>
         </div>
     </header>
 
-    <main class="catalog-container">
+    <main class="catalog-container" id="catalog-root" role="main">
         <div class="catalog-grid">
             <div class="catalog-item" data-item="monkey">
                 <div class="item-card">
                     <div class="item-image">
-                        <img src="monkey.png" alt="ลิงลพบุรี" class="item-img">
+                        <img src="monkey.png" alt="ลิงลพบุรี" class="item-img" loading="lazy" width="120" height="120">
                     </div>
                     <div class="item-info">
                         <h3>ลิงลพบุรี</h3>
@@ -56,7 +80,7 @@
             <div class="catalog-item" data-item="salted-egg">
                 <div class="item-card">
                     <div class="item-image">
-                        <img src="egg.png" alt="ไข่เค็มลพบุรี" class="item-img">
+                        <img src="egg.png" alt="ไข่เค็มลพบุรี" class="item-img" loading="lazy" width="120" height="120">
                     </div>
                     <div class="item-info">
                         <h3>ไข่เค็มลพบุรี</h3>
@@ -69,7 +93,7 @@
             <div class="catalog-item" data-item="chalk">
                 <div class="item-card">
                     <div class="item-image">
-                        <img src="pong.png" alt="ดินสอพอง" class="item-img">
+                        <img src="pong.png" alt="ดินสอพอง" class="item-img" loading="lazy" width="120" height="120">
                     </div>
                     <div class="item-info">
                         <h3>ดินสอพอง</h3>
@@ -82,7 +106,7 @@
             <div class="catalog-item" data-item="prang">
                 <div class="item-card">
                     <div class="item-image">
-                        <img src="sam.png" alt="ปรางค์สามยอด" class="item-img">
+                        <img src="sam.png" alt="ปรางค์สามยอด" class="item-img" loading="lazy" width="120" height="120">
                     </div>
                     <div class="item-info">
                         <h3>ปรางค์สามยอด</h3>
@@ -95,7 +119,7 @@
             <div class="catalog-item" data-item="dam">
                 <div class="item-card">
                     <div class="item-image">
-                        <img src="thai.png" alt="การแต่งกายในยุคพระนารายณ์" class="item-img">
+                        <img src="thai.png" alt="การแต่งกายในยุคพระนารายณ์" class="item-img" loading="lazy" width="120" height="120">
                     </div>
                     <div class="item-info">
                         <h3>การแต่งกายในยุคพระนารายณ์</h3>
@@ -108,7 +132,7 @@
             <div class="catalog-item" data-item="mountain">
                 <div class="item-card">
                     <div class="item-image">
-                        <img src="wat.png" alt="เขาวงพระจันทร์" class="item-img">
+                        <img src="wat.png" alt="เขาวงพระจันทร์" class="item-img" loading="lazy" width="120" height="120">
                     </div>
                     <div class="item-info">
                         <h3>เขาวงพระจันทร์</h3>
@@ -121,7 +145,7 @@
     </main>
 
     <!-- NEWSOYES_NEWSOYES_NEWSOYES -->
-    <div id="modelModal" class="modal">
+    <div id="modelModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 id="modalTitle">โมเดล 3D</h2>
@@ -141,7 +165,7 @@
     </div>
 
     <!-- Modal สำหรับเนื้อหาอื่นๆ (เกมส์/วัฒนธรรมที่เกี่ยวข้อง) -->
-    <div id="modal" class="modal" style="display:none;">
+    <div id="modal" class="modal" style="display:none;" role="dialog" aria-modal="true" aria-label="หน้าต่างข้อมูล">
       <div id="modal-content" class="modal-content"></div>
     </div>
 
