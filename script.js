@@ -3,6 +3,27 @@ const itemData = {
     monkey: {
         title: "ลิงลพบุรี",
         description: "ลิงแสม (Macaca fascicularis) เป็นสัญลักษณ์สำคัญของลพบุรี พบได้ทั่วไปตามโบราณสถาน เช่น ปรางค์สามยอด วัดพระศรีรัตนมหาธาตุ และเป็นที่ดึงดูดนักท่องเที่ยวให้มาเยี่ยมชมและให้อาหารลิงในเมืองลพบุรีทุกปี โดยเฉพาะในงานเลี้ยงโต๊ะจีนลิงที่จัดขึ้นเป็นประจำทุกปี",
+        detailedDescription: `
+            <div class="detail-section">
+                <h4>🐒 ลิงลพบุรี: สัญลักษณ์แห่งเมือง</h4>
+                <p>ลิงแสมในลพบุรีเป็นที่รู้จักไปทั่วโลก ด้วยจำนวนที่มากกว่า 3,000 ตัวที่อาศัยอยู่ในใจกลางเมือง โดยเฉพาะบริเวณโบราณสถานสำคัญ</p>
+                <img src="monkey/1.jpg" alt="ลิงลพบุรี" class="detail-img">
+                <img src="monkey/2.jpg" alt="สถานที่พบลิง" class="detail-img">
+                <img src="monkey/3.jpg" alt="งานเลี้ยงโต๊ะจีนลิง" class="detail-img">
+            </div>
+            <div class="detail-section">
+                <h4>📍 สถานที่พบลิง</h4>
+                <ul>
+                    <li>ปรางค์สามยอด - ลิงอาศัยมากที่สุด</li>
+                    <li>วัดพระศรีรัตนมหาธาตุ - ลิงที่เชื่องและเป็นมิตร</li>
+                    <li>ศาลพระกาฬ - ลิงที่ชอบเล่นกับนักท่องเที่ยว</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4>🎉 งานเลี้ยงโต๊ะจีนลิง</h4>
+                <p>จัดขึ้นทุกปีในเดือนพฤศจิกายน เป็นงานเลี้ยงที่ใหญ่ที่สุดในโลกสำหรับลิง มีอาหารมากกว่า 4,000 กิโลกรัม</p>
+            </div>
+        `,
         reference: "https://www.lopburi.org/copy-of",
         color: "#8B4513",
         modelType: "glb",
@@ -14,6 +35,28 @@ const itemData = {
     "salted-egg": {
         title: "ไข่เค็มลพบุรี",
         description: "ไข่เค็มลพบุรี ผลิตจากไข่เป็ดคุณภาพดีและดินสอพองของลพบุรี มีรสชาติอร่อย ไข่แดงมันเยิ้ม นิยมซื้อเป็นของฝากและใช้ประกอบอาหารหลากหลายเมนู เช่น ข้าวต้ม ไข่เค็มต้มยางมะตูม ฯลฯ",
+        detailedDescription: `
+            <div class="detail-section">
+                <h4>🥚 ไข่เค็มลพบุรี: ของดีขึ้นชื่อ</h4>
+                <p>ไข่เค็มลพบุรีเป็นสินค้าขึ้นชื่อที่มีประวัติยาวนานกว่า 100 ปี ผลิตจากไข่เป็ดคุณภาพดีและดินสอพองธรรมชาติของลพบุรี</p>
+                <img src="egg/1.jpg" alt="ไข่เค็มลพบุรี" class="detail-img">
+                <img src="egg/2.jpg" alt="กรรมวิธีการผลิต" class="detail-img">
+                <img src="egg/3.jpg" alt="เมนูแนะนำ" class="detail-img">
+            </div>
+            <div class="detail-section">
+                <h4>🔬 กรรมวิธีการผลิต</h4>
+                <ul>
+                    <li>ใช้ไข่เป็ดสดคุณภาพดี</li>
+                    <li>เคลือบด้วยดินสอพองธรรมชาติ</li>
+                    <li>หมักในน้ำเกลือ 15-20 วัน</li>
+                    <li>ไข่แดงจะแข็งและมีสีส้มสวย</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4>🍽️ เมนูแนะนำ</h4>
+                <p>ไข่เค็มลพบุรีสามารถนำไปทำอาหารได้หลากหลาย เช่น ข้าวต้ม ไข่เค็มต้มยางมะตูม ไข่เค็มผัดข้าว ฯลฯ</p>
+            </div>
+        `,
         reference: "https://itech.tru.ac.th/Art/show_4.php",
         color: "#FFD700",
         modelType: "glb",
@@ -25,6 +68,28 @@ const itemData = {
     chalk: {
         title: "ดินสอพองลพบุรี",
         description: "ดินสอพองลพบุรีเป็นวัตถุดิบสำคัญในการทำไข่เค็มและใช้ในประเพณีสงกรานต์ มีคุณสมบัติพิเศษคือเนื้อละเอียด สีขาวสะอาด และปลอดภัยต่อผิวหนัง เป็นสินค้าขึ้นชื่อของจังหวัดลพบุรี",
+        detailedDescription: `
+            <div class="detail-section">
+                <h4>🏺 ดินสอพองลพบุรี: วัตถุดิบธรรมชาติ</h4>
+                <p>ดินสอพองลพบุรีเป็นดินขาวธรรมชาติที่มีคุณภาพดีที่สุดในประเทศไทย ใช้ในการทำไข่เค็มและประเพณีสงกรานต์</p>
+                <img src="pong/1.jpg" alt="ดินสอพองลพบุรี" class="detail-img">
+                <img src="pong/2.jpg" alt="คุณสมบัติพิเศษ" class="detail-img">
+                <img src="pong/3.jpg" alt="การใช้ในประเพณี" class="detail-img">
+            </div>
+            <div class="detail-section">
+                <h4>🌿 คุณสมบัติพิเศษ</h4>
+                <ul>
+                    <li>เนื้อละเอียด สีขาวสะอาด</li>
+                    <li>ปลอดภัยต่อผิวหนัง</li>
+                    <li>ไม่มีสารเคมีเจือปน</li>
+                    <li>เหมาะสำหรับการทำไข่เค็ม</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4>🎊 การใช้ในประเพณี</h4>
+                <p>ดินสอพองถูกใช้ในประเพณีสงกรานต์เพื่อทาหน้าและร่างกาย เป็นสัญลักษณ์แห่งความบริสุทธิ์และความสุข</p>
+            </div>
+        `,
         reference: "https://www.ipst.ac.th/news/60772/20240411-limestone-ipst.html",
         color: "#F5F5DC",
         modelType: "glb",
@@ -36,6 +101,28 @@ const itemData = {
     prang: {
         title: "ปรางค์สามยอด",
         description: "ปรางค์สามยอดเป็นโบราณสถานสำคัญของลพบุรี สร้างขึ้นในสมัยขอมแบบบายน มีลักษณะเป็นปรางค์ 3 องค์เชื่อมต่อกัน เป็นสัญลักษณ์ของเมืองลพบุรีและเป็นที่อยู่อาศัยของลิงจำนวนมาก",
+        detailedDescription: `
+            <div class="detail-section">
+                <h4>🏛️ ปรางค์สามยอด: สัญลักษณ์แห่งลพบุรี</h4>
+                <p>ปรางค์สามยอดเป็นโบราณสถานสำคัญที่สร้างขึ้นในสมัยขอมแบบบายน มีลักษณะเป็นปรางค์ 3 องค์เชื่อมต่อกัน สูงประมาณ 20 เมตร</p>
+                <img src="sam/1.jpg" alt="ปรางค์สามยอด" class="detail-img">
+                <img src="sam/2.jpg" alt="สถาปัตยกรรม" class="detail-img">
+                <img src="sam/3.jpg" alt="ที่อยู่อาศัยของลิง" class="detail-img">
+            </div>
+            <div class="detail-section">
+                <h4>🏗️ สถาปัตยกรรม</h4>
+                <ul>
+                    <li>สร้างด้วยศิลาแลงและอิฐ</li>
+                    <li>มีปรางค์ 3 องค์เชื่อมต่อกัน</li>
+                    <li>มีลวดลายปูนปั้นสวยงาม</li>
+                    <li>เป็นสถาปัตยกรรมแบบบายน</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4>🐒 ที่อยู่อาศัยของลิง</h4>
+                <p>ปรางค์สามยอดเป็นที่อยู่อาศัยของลิงแสมจำนวนมาก ทำให้เป็นจุดท่องเที่ยวที่โดดเด่นและเป็นเอกลักษณ์ของลพบุรี</p>
+            </div>
+        `,
         reference: "https://th.wikipedia.org/wiki/%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B9%8C%E0%B8%AA%E0%B8%B2%E0%B8%A1%E0%B8%A2%E0%B8%AD%E0%B8%94",
         color: "#CD853F",
         modelType: "glb",
@@ -45,19 +132,63 @@ const itemData = {
         history: "สร้างขึ้นในสมัยพระเจ้าชัยวรมันที่ 7 แห่งอาณาจักรขอม"
     },
     dam: {
-        title: "เขื่อนป่าสักชลสิทธิ์",
-        description: "เขื่อนป่าสักชลสิทธิ์เป็นเขื่อนดินที่ยาวที่สุดในประเทศไทย สร้างขึ้นเพื่อกักเก็บน้ำและป้องกันน้ำท่วมในลุ่มน้ำป่าสัก เป็นแหล่งท่องเที่ยวและจุดชมวิวที่สำคัญของลพบุรี",
-        reference: "https://th.wikipedia.org/wiki/%E0%B9%80%E0%B8%82%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%9B%E0%B9%88%E0%B8%B2%E0%B8%AA%E0%B8%B1%E0%B8%81%E0%B8%8A%E0%B8%A5%E0%B8%AA%E0%B8%B4%E0%B8%97%E0%B8%98%E0%B8%B4%E0%B9%8C",
-        color: "#4682B4",
+        title: "การแต่งกายในยุคพระนารายณ์",
+        description: "ชุดแต่งกายโบราณในสมัยพระนารายณ์มหาราช แสดงถึงวัฒนธรรมการแต่งกายของชนชั้นสูงในสมัยอยุธยา มีความวิจิตรบรรจงและสะท้อนถึงฐานะทางสังคมของผู้สวมใส่",
+        detailedDescription: `
+            <div class="detail-section">
+                <h4>👑 การแต่งกายในยุคพระนารายณ์</h4>
+                <p>ชุดแต่งกายโบราณในสมัยพระนารายณ์มหาราช แสดงถึงวัฒนธรรมการแต่งกายของชนชั้นสูงในสมัยอยุธยา มีความวิจิตรบรรจงและสะท้อนถึงฐานะทางสังคม</p>
+                <img src="thai/1.jpg" alt="การแต่งกายในยุคพระนารายณ์" class="detail-img">
+                <img src="thai/2.jpg" alt="ลักษณะชุดแต่งกาย" class="detail-img">
+                <img src="thai/3.jpg" alt="ประวัติศาสตร์" class="detail-img">
+            </div>
+            <div class="detail-section">
+                <h4>👘 ลักษณะชุดแต่งกาย</h4>
+                <ul>
+                    <li>ผ้าไหมทอด้วยมือคุณภาพดี</li>
+                    <li>มีลวดลายทองคำปักประดับ</li>
+                    <li>สีสันสดใสและวิจิตรบรรจง</li>
+                    <li>สะท้อนถึงฐานะทางสังคม</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4>🏛️ ประวัติศาสตร์</h4>
+                <p>สมัยพระนารายณ์มหาราช (พ.ศ. 2199-2231) เป็นยุคทองของวัฒนธรรมไทย การแต่งกายแสดงถึงความรุ่งเรืองและความเจริญของอาณาจักรอยุธยา</p>
+            </div>
+        `,
+        reference: "https://th.wikipedia.org/wiki/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%84%E0%B8%97%E0%B8%A2",
+        color: "#8B4513",
         modelType: "glb",
         view360: "https://www.google.com/maps/@14.7995,100.6533,3a,75y,0h,90t/data=!3m6!1e1!3m4!1s!2e0!7i16384!8i8192",
-        relatedCulture: ["การเกษตร", "การชลประทาน", "การท่องเที่ยว"],
-        festivals: ["งานประเพณีบุญบั้งไฟ", "เทศกาลน้ำ"],
-        history: "สร้างขึ้นในปี พ.ศ. 2537 เพื่อแก้ปัญหาน้ำท่วมและภัยแล้ง"
+        relatedCulture: ["ประวัติศาสตร์อยุธยา", "วัฒนธรรมการแต่งกาย", "พระนารายณ์มหาราช"],
+        festivals: ["งานประเพณีอยุธยา", "เทศกาลวัฒนธรรมไทย"],
+        history: "ชุดแต่งกายในสมัยพระนารายณ์มหาราช (พ.ศ. 2199-2231) แสดงถึงความรุ่งเรืองของวัฒนธรรมไทย"
     },
     mountain: {
         title: "เขาวงพระจันทร์",
         description: "  เขาวงพระจันทร์ นั้นเป็นภูเขาที่สูงที่สุดในจังหวัดลพบุรี ทางขึ้นเป็นทางบันได 3,790 ขั้น ที่เดินทางได้ง่าย ไม่ลำบากเหมือนการเดินขึ้นเขาที่อื่นๆ ค่ะ และยังมีความเชื่อกันว่า หากใครได้มานมัสการรอยพระพุทธบาทที่ประดิษฐานอยู่บนยอดเขาวงพระจันทร์ จะประสบความสุข สมหวังทุกประการ ค่ะ ",
+        detailedDescription: `
+            <div class="detail-section">
+                <h4>⛰️ เขาวงพระจันทร์: ภูเขาศักดิ์สิทธิ์</h4>
+                <p>เขาวงพระจันทร์เป็นภูเขาที่สูงที่สุดในจังหวัดลพบุรี มีความสูงประมาณ 650 เมตร เป็นที่ประดิษฐานรอยพระพุทธบาทที่ศักดิ์สิทธิ์</p>
+                <img src="wat/1.jpg" alt="เขาวงพระจันทร์" class="detail-img">
+                <img src="wat/2.jpg" alt="การเดินทาง" class="detail-img">
+                <img src="wat/3.jpg" alt="ความเชื่อและศักดิ์สิทธิ์" class="detail-img">
+            </div>
+            <div class="detail-section">
+                <h4>🛤️ การเดินทาง</h4>
+                <ul>
+                    <li>มีบันไดขึ้นเขาทั้งหมด 3,790 ขั้น</li>
+                    <li>ทางเดินสะดวกและปลอดภัย</li>
+                    <li>ใช้เวลาประมาณ 2-3 ชั่วโมง</li>
+                    <li>มีจุดพักระหว่างทางหลายจุด</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4>🙏 ความเชื่อและศักดิ์สิทธิ์</h4>
+                <p>ตามความเชื่อ หากใครได้มานมัสการรอยพระพุทธบาทบนยอดเขาวงพระจันทร์ จะประสบความสุข สมหวังทุกประการ และมีโชคลาภ</p>
+            </div>
+        `,
         reference: "https://travel.trueid.net/detail/AKz69Jd9N01",
         color: "#228B22",
         modelType: "glb",
@@ -82,6 +213,7 @@ const glbModels = {
 let scene, camera, renderer, controls;
 let currentModel = null;
 let currentMixer = null;
+let currentModelType = null; // NEWSOYES - Track current model type for rotation control
 
 // NEWSOYES
 document.addEventListener('DOMContentLoaded', function() {
@@ -134,7 +266,9 @@ function openModelModal(itemType) {
     const data = itemData[itemType];
     
     modalTitle.textContent = data.title;
-    modelDescription.innerHTML = `
+    
+    // NEWSOYES - Show detailed description if available, otherwise show basic description
+    const descriptionContent = data.detailedDescription || `
         <div>${data.description}</div>
         <div style="margin-top:1rem;">
             <a href="${data.reference}" target="_blank" style="color:#00ffff;text-decoration:underline;font-size:1rem;">
@@ -142,6 +276,8 @@ function openModelModal(itemType) {
             </a>
         </div>
     `;
+    
+    modelDescription.innerHTML = descriptionContent;
     
     modal.style.display = 'block';
     
@@ -214,6 +350,9 @@ function create3DModel(itemType, data) {
     
     // NEWSOYES
     container.innerHTML = '';
+    
+    // NEWSOYES - Set current model type for rotation control
+    currentModelType = itemType;
     
     // NEWSOYES
     scene = new THREE.Scene();
@@ -673,7 +812,12 @@ function animate() {
     requestAnimationFrame(animate);
     
     if (currentModel) {
-        currentModel.rotation.y += 0.01;
+        // NEWSOYES - Slower rotation for specific models
+        if (currentModelType === 'prang' || currentModelType === 'mountain') {
+            currentModel.rotation.y += 0.005; // Slower rotation for prang and mountain
+        } else {
+            currentModel.rotation.y += 0.01; // Normal rotation for other models
+        }
     }
     
     // NEWSOYES
