@@ -159,7 +159,7 @@ const itemData = {
         reference: "https://th.wikipedia.org/wiki/%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%84%E0%B8%97%E0%B8%A2",
         color: "#8B4513",
         modelType: "glb",
-        view360: "https://www.google.com/maps/@14.7995,100.6533,3a,75y,0h,90t/data=!3m6!1e1!3m4!1s!2e0!7i16384!8i8192",
+        view360: "https://www.google.com/maps/@14.8003441,100.6122283,3a,75y,242.13h,80.34t/data=!3m7!1e1!3m5!1s5mBkhcfjoeHGjnYv2O2seA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D9.660822660571043%26panoid%3D5mBkhcfjoeHGjnYv2O2seA%26yaw%3D242.1318471199483!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
         relatedCulture: ["ประวัติศาสตร์อยุธยา", "วัฒนธรรมการแต่งกาย", "พระนารายณ์มหาราช"],
         festivals: ["งานประเพณีอยุธยา", "เทศกาลวัฒนธรรมไทย"],
         history: "ชุดแต่งกายในสมัยพระนารายณ์มหาราช (พ.ศ. 2199-2231) แสดงถึงความรุ่งเรืองของวัฒนธรรมไทย"
@@ -912,13 +912,20 @@ function downloadModel(itemKey) {
 function show360View(itemKey) {
     const item = itemData[itemKey];
     
+    // หากมีลิงก์ Street View แบบกำหนดเอง ให้เปิดโดยตรง
+    if (item && item.view360 && item.view360.startsWith('https://')) {
+        window.open(item.view360, '_blank');
+        alert(`กำลังเปิด 360° View ของ ${item.title}\nหากไม่พบ Street View ให้ลองค้นหาใน Google Maps`);
+        return;
+    }
+    
     // ข้อมูลพิกัดของแต่ละสถานที่ (พิกัดจริง)
     const locations = {
         monkey: { lat: 14.802163674038972, lng: 100.61499995898315, name: "ลิงลพบุรี" },
         "salted-egg": { lat: 14.817688391032927, lng: 100.63196156773982, name: "ไข่เค็มดินสอพอง" },
         chalk: { lat: 14.810603225433391, lng: 100.63324697455955, name: "ดินสอพอง" },
         prang: { lat: 14.802963886587168, lng: 100.6140206121651, name: "ปรางค์สามยอด" },
-        dam: { lat: 14.861802503931683, lng: 101.06626204855486, name: "เขื่อนป่าสักชลสิทธิ์" },
+        dam: { lat: 14.8003441, lng: 100.6122283, name: "การแต่งกายในยุคพระนารายณ์" },
         mountain: { lat: 14.9649345392816, lng: 100.69977040569555, name: "เขาวงพระจันทร์" }
     };
     
